@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tabulator Example</title>
+  <!-- Tabulator CSS 파일 추가 -->
+  <link href="https://cdn.jsdelivr.net/npm/tabulator-tables@5.1.0/dist/css/tabulator.min.css" rel="stylesheet">
+  <!-- Tabulator JavaScript 파일 추가 -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/tabulator-tables@5.1.0/dist/js/tabulator.min.js"></script>
+</head>
+<body>
+
+<div id="example-table"></div>
+
+<script>
+  // 데이터 배열
+  var tableData = [
+    { id: 1, name: "John Doe", age: 30, gender: "male", progress: 70 },
+    { id: 2, name: "Jane Smith", age: 25, gender: "female", progress: 50 },
+    { id: 3, name: "Bob Johnson", age: 40, gender: "male", progress: 80 },
+  ];
+
+  // 테이블 생성
+  var table = new Tabulator("#example-table", {
+    data: tableData, // 데이터 설정
+    layout: "fitColumns",
+    columns: [ // 컬럼 정의
+      { title: "ID", field: "id" },
+      { title: "Name", field: "name" },
+      { title: "Age", field: "age" },
+      { title: "Gender", field: "gender" },
+      // Progress Bar 컬럼 추가
+      {
+        title: "Progress",
+        field: "progress",
+        formatter: "progress",
+        formatterParams: {
+          min: 0,
+          max: 100,
+          color: function(value) {
+            return value < 50 ? "#FF0000" : "#0000FF";
+          },
+          percent: true,
+        }
+      },
+    ],
+  });
+</script>
+
+</body>
+</html>
