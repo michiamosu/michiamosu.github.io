@@ -1,0 +1,691 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>CVP(Customer Value Proposition) &amp; Key Features (주요 특징)</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="d06709e7-76fa-4023-a78e-162304a702bd" class="page sans"><header><h1 class="page-title">CVP(<strong>Customer Value Proposition) &amp; Key Features (주요 특징)</strong></h1><p class="page-description"></p></header><div class="page-body"><hr id="50cdbb98-6680-4f28-b7b9-8028b936240c"/><figure id="a3eb99e8-ff41-4754-bac9-30da36aff609" class="link-to-page"><a href="https://www.notion.so/CVP-a3eb99e8ff414754bac930da36aff609?pvs=21">고객 가치 제안(CVP) 정리 방법</a></figure><h2 id="663c5508-be22-40be-abd9-4e33a17f810d" class=""><mark class="highlight-gray_background">CVP </mark></h2><ul id="6dcbf185-afae-4dd3-9552-90c7a928829a" class="bulleted-list"><li style="list-style-type:disc"><strong>편의성</strong>: 명확한 단가로 인근 슈퍼마켓에 쉽게 접근할 수 있습니다.</li></ul><ul id="9a32fbb6-9876-49cc-b880-446420cf03ad" class="bulleted-list"><li style="list-style-type:disc"><strong>정보에 기반한 의사 결정</strong>: 매장을 방문하기 전에 더 나은 가격 비교 및 제품 선택이 가능합니다.</li></ul><ul id="7bf54f0b-15a1-4c17-b735-ca87b782d6c8" class="bulleted-list"><li style="list-style-type:disc"><strong>시간 효율성</strong>: 반복적인 검색 및 비교의 필요성을 줄여 쇼핑 프로세스를 간소화합니다.</li></ul><ul id="ba4e9f6b-5024-4a57-a8bb-0a9c73b70aa8" class="bulleted-list"><li style="list-style-type:disc"><strong>비용 절감</strong>: 필요한 만큼 식자재를 구매할 수 있기 때문에 비용 절감의 효과를 얻을 수 있습니다.</li></ul><p id="bc83858e-a3df-4e47-989c-c11146fc4511" class="">
+</p><figure id="d8983729-fd9b-4319-89c4-74436450d964" class="image"><a href="CVP(Customer%20Value%20Proposition)%20&amp;%20Key%20Features%20(%E1%84%8C%E1%85%AE%20d06709e776fa4023a78e162304a702bd/Untitled.png"><img style="width:5952px" src="CVP(Customer%20Value%20Proposition)%20&amp;%20Key%20Features%20(%E1%84%8C%E1%85%AE%20d06709e776fa4023a78e162304a702bd/Untitled.png"/></a></figure><p id="4d1e41da-a30c-46b4-a5b6-93b1fac790c4" class="">
+</p><hr id="a7bdb656-a7e6-4530-a852-ff0fcd3a0dd7"/><div id="c6dd5798-a328-44ad-a0ad-36dfc54b5676" class="column-list"><div id="96e99ff3-9523-4845-9034-fcc2acaa7276" style="width:50%" class="column"><h3 id="538bc879-bb18-426d-b764-770c2dbb051c" class=""><mark class="highlight-orange"><strong>가치 맵 (Value Map)</strong></mark></h3><ol type="1" id="10a51700-a7be-4096-8ab2-08a0d40e64ad" class="numbered-list" start="1"><li><mark class="highlight-orange_background"><strong>Service (서비스)</strong></mark><ul id="8b85cd21-c141-409b-b6c5-d87d0cf5b3f9" class="bulleted-list"><li style="list-style-type:disc"><strong>인근 마트 단위 가격 표시 서비스(B2C):</strong><ul id="499b4fdc-a62b-4340-9b0e-a073e15369ba" class="bulleted-list"><li style="list-style-type:circle">다양한 마트에서 개당 단위별 가격을 보여주는 서비스로, 도보 15분 거리 이내 인근 마트의 최적의 식자재를 빠르게 비교하고 소비할 수 있도록 도와줌<br/><br/></li></ul></li></ul></li></ol><ol type="1" id="6a85e7bf-ef0e-4f7f-b990-2fa27bf3ce1e" class="numbered-list" start="2"><li><mark class="highlight-orange_background"><strong>Gain Creators (이익 창출)</strong></mark><ul id="dc79b2d2-fada-413a-a2a0-7f039232d234" class="bulleted-list"><li style="list-style-type:disc"><strong>딱 필요한 소량만 구입 서포트:<br/><br/></strong>가족의 건강을 위하여 신선한 식자재로 식사를 만들어 먹을 수 있는 혜택 제공.</li></ul><ul id="a9ae0c70-c9a9-49c9-a8b9-d847ebf709ff" class="bulleted-list"><li style="list-style-type:disc"><strong>신뢰성 있는 신뢰지수 도입:</strong><ul id="0b55e5c8-ce52-45fb-865a-393511c4ecd6" class="bulleted-list"><li style="list-style-type:circle">거래 후 신뢰성 있는 리뷰를 남기는 기능을 제공하여 거래 마트의 신뢰지수 표시</li></ul></li></ul><ul id="a1a22cca-1ef7-43a5-9935-c7c67aa3009f" class="bulleted-list"><li style="list-style-type:disc"><strong>효율적인 쇼핑 경험:</strong><ul id="591442f3-606f-47b3-b24e-a4c8f850259a" class="bulleted-list"><li style="list-style-type:circle">고객이 빠르고 정보에 입각한 구매 결정을 내릴 수 있도록 하여, 시간을 절약하고 최적의 위치의 마트 방문을 유도합니다.</li></ul></li></ul></li></ol><p id="15986941-28e0-466f-9b7a-b962373c5ccb" class="">
+</p><ol type="1" id="daf9e550-bd20-4ae9-be0f-7e12492f5901" class="numbered-list" start="3"><li><mark class="highlight-orange_background"><strong>Pain Relievers (고통 완화제)</strong></mark><ul id="8362f4ad-0af6-4077-91d5-0a264c8747ad" class="bulleted-list"><li style="list-style-type:disc"><strong>근처 마트 찾기의 편리함:</strong><ul id="11a51fed-8aef-4b6f-9630-6b5af9dc11ae" class="bulleted-list"><li style="list-style-type:circle">통합된 지도 기능을 통해 가까운 슈퍼마켓을 쉽게 찾을 수 있어, 거리에 대한 불편함을 해결합니다.</li></ul></li></ul><ul id="bb5c6113-04cf-4d79-961e-a3d8f5e07215" class="bulleted-list"><li style="list-style-type:disc"><strong>빠른 가격 비교:</strong><ul id="87ffb367-b827-4115-868d-0cbb707e5332" class="bulleted-list"><li style="list-style-type:circle">마트별 가격 정보를 한 눈에 비교할 수 있어, 예산을 효과적으로 관리하고 이동경로 계획 가능</li></ul></li></ul><ul id="25373694-25bc-48fb-83f6-3f4e6ba1d674" class="bulleted-list"><li style="list-style-type:disc"><strong>음식물 쓰레기 최소화</strong>:<ul id="3600eb1f-5516-4661-aeb9-a772a1082022" class="bulleted-list"><li style="list-style-type:circle">필요한 만큼 식품을 구매해 최대한 음식물 쓰레기를 남기지 않습니다.</li></ul></li></ul></li></ol><p id="6a75da5c-3dc3-47c8-a599-4ddf8759dc59" class="">
+</p><p id="fca3d0df-eeaf-4e18-b30f-51143e892c0a" class="">
+</p></div><div id="e465a16b-0640-4b09-9ce1-b54cbdc6cd0e" style="width:50%" class="column"><h3 id="0ff199c0-a8b4-4d81-a9c9-9aa4f2fe8b25" class=""><mark class="highlight-purple"><strong>고객 프로필 (Customer Profile):</strong></mark></h3><ol type="1" id="6a0c2fbf-f0b0-43e7-8c87-3901deab1df4" class="numbered-list" start="1"><li><mark class="highlight-purple_background"><strong>Customer Jobs (고객의 과업)</strong></mark><ul id="db1bb417-9f26-45c4-b750-d864161a7491" class="bulleted-list"><li style="list-style-type:disc">빠르고 효율적인 방법으로 시간과 재료 낭비없이 필요한 소량의 식자재를 당일에 소비하기</li></ul><ul id="390b76fb-7615-4371-8d8d-edd625fdd309" class="bulleted-list"><li style="list-style-type:disc">신선한 식자재를 소량의 양을 합리적인 가격으로 구매해서 생활비 절약하기</li></ul></li></ol><p id="7fccb97f-dbaf-4344-8bac-43445d79eada" class="">
+</p><p id="ddff99f0-af5b-4480-b066-aab72f0c2792" class="">
+</p><ol type="1" id="4f9f1b38-ceb9-488d-9cfb-98795c886f28" class="numbered-list" start="2"><li><mark class="highlight-purple_background"><strong>Gains (이점)</strong></mark><ul id="dd5c8b9e-23c9-418b-b0d5-c75487454122" class="bulleted-list"><li style="list-style-type:disc"><strong>시간 절약과 편리성:</strong><ul id="520123da-1191-44e7-9c24-a063f8afb960" class="bulleted-list"><li style="list-style-type:circle">각 마트를 방문하지 않고도 지도상에 표시된 것으로 다양한 슈퍼마켓의 가격 및 제품 신선도, 마트 신뢰도를 효율적으로 비교하기.</li></ul></li></ul><ul id="5ba5548a-6a71-4a6a-8241-aae1974754d3" class="bulleted-list"><li style="list-style-type:disc"><strong>비용 절약:</strong><ul id="9a3bdd37-f73e-4eaa-a5a0-7f6962e8de68" class="bulleted-list"><li style="list-style-type:circle">도보 15분 이내의 마트에서 신선한 식재료를 개당 단위로 소량으로 구매하기.</li></ul></li></ul></li></ol><p id="b1baddd3-d7ac-4c14-b978-24911ff27ae9" class="">
+</p><p id="041de2cf-3a92-46bf-9993-d4a3d75cc38a" class="">
+</p><ol type="1" id="b3ee58e9-9e27-4ac5-b8c5-0bce9749fdfa" class="numbered-list" start="3"><li><mark class="highlight-purple_background"><strong>Pains (고통)</strong></mark><ul id="bea9f17c-b324-4e06-b776-7375524f4013" class="bulleted-list"><li style="list-style-type:disc"><strong>이동 및 시간 비용:</strong><ul id="9fa8712d-1b31-4988-aa5c-9bc1947419c8" class="bulleted-list"><li style="list-style-type:circle">여러 슈퍼마켓을 방문하여 가격을 비교해야해서 시간과 비용이 발생됨</li></ul></li></ul><ul id="f8137060-f72a-4587-9698-c1d9f5ab16da" class="bulleted-list"><li style="list-style-type:disc"><strong>대량 구매로 인해 발생되는 지출과 쓰레기 낭비:</strong><ul id="7ec4b899-c1e5-44be-a38f-52b57cda958c" class="bulleted-list"><li style="list-style-type:circle">대량 구매했는데, 지출 비용은 크고 식품을 다 소비하지 못하여 쓰레기 발생</li></ul><p id="dce16c09-f9ec-47c8-a621-c80f7e2ef012" class="">
+</p></li></ul></li></ol></div></div><p id="ac798f0c-6f3f-45ea-a8db-91764d0dcef1" class="">
+</p><h2 id="7affae8e-db55-4002-8383-8dabb7e7bb2c" class=""><mark class="highlight-gray_background">KEY FEATURES(주요 특징)</mark></h2><hr id="cb35d5da-18aa-4f33-a168-91b89a2dac38"/><ol type="1" id="c34a633b-9c3b-466a-9423-a7e997180a27" class="numbered-list" start="1"><li><strong>지역 기반 정보 제공 서비스 (Local-based Service ):</strong><ul id="b57fc813-4324-4a74-b593-a5b5a48eb075" class="bulleted-list"><li style="list-style-type:disc"><strong>정의:</strong> 사용자가 현재 위치를 기반으로 한 지역 내의 알맞는 개당 식자재 가격을 비교해 볼수 있는 기능.</li></ul><ul id="c101d61c-6e07-4a1e-80fb-04639b2de7b5" class="bulleted-list"><li style="list-style-type:disc"><strong>특징:</strong> 거주 지역의 가까운 거리에서 식자재를 구매할 수 있게 도와주는 편리함을 제공.</li></ul></li></ol><p id="48c0be2c-444d-42d0-9340-ca827cb9f2f9" class="">
+</p><ol type="1" id="9d2fc549-5e3c-45b7-82a2-df640ce90dd0" class="numbered-list" start="2"><li><strong>식자재별 및 마트 신뢰 지수별 필터링 기능 (Category and Filtering Options):</strong><ul id="222d4e0d-a3b1-486d-90c4-8618853ef83e" class="bulleted-list"><li style="list-style-type:disc"><strong>정의:</strong> 다양한 식자재 카테고리와 검색 필터를 제공하여 사용자가 원하는 물품을 쉽게 찾을 수 있는 기능.</li></ul><ul id="7816745b-b732-49c7-adf3-7af729c54658" class="bulleted-list"><li style="list-style-type:disc"><strong>특징:</strong> 신뢰지수별 필터를 적용하여 마트를 표시</li></ul></li></ol><p id="de0d8969-b142-4cf8-ab16-52d253a99036" class="">
+</p><ol type="1" id="f391f5ee-0d96-4eab-8232-422490a3e1b9" class="numbered-list" start="3"><li><strong>전단지 정보 제공: </strong><ul id="2286b3f3-c72d-4086-a10d-3c114dd6b2cd" class="bulleted-list"><li style="list-style-type:disc"> <strong>정의:</strong> 인근 마트의 특가 할인 정보를 온라인 제공하여 고객이 더 저렴하게 상품을 구매할 수 있도록 돕는 기능</li></ul><ul id="bdf22c2b-7bbf-482f-8f61-17d53f93b6bf" class="bulleted-list"><li style="list-style-type:disc"><strong>특징:</strong> 자세히 보고 싶은 마트를 클릭하면 전단상품이 뜨도록 표시 (종이 절약)</li></ul><p id="41a2d880-1649-4b3c-9ccb-ebc4641fe446" class="">
+</p></li></ol><ol type="1" id="cbc61311-a138-425a-843c-7797a48f6350" class="numbered-list" start="4"><li><strong>신뢰지수 도입 및 평가 시스템 (Trustworthy Profiles and Rating System):</strong><ul id="f38a01b0-53c9-4176-b1bb-5da9cee24c0b" class="bulleted-list"><li style="list-style-type:disc"><strong>정의:</strong> 사용자는 구매 결정 전에 마트의 신뢰지수를 확인하여 안심 거래를 할 수 있는 시스템.</li></ul><ul id="1955f4d3-9aec-4b65-a6b9-87f409a25daa" class="bulleted-list"><li style="list-style-type:disc"><strong>특징:</strong> 구매자는 결제 및 이용 후 평가를 남기며, 마트 지수를 맵 상에서 확인 할 수 있도록 표시</li></ul></li></ol><p id="1dd187f9-3110-4be0-a73c-ac2219a2c6b2" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

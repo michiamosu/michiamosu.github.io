@@ -1,0 +1,704 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>1차 논의 과정 (24.01.02)</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="9463aff4-6843-4674-b0f6-49a45200e529" class="page sans"><header><h1 class="page-title">1차 논의 과정 (24.01.02)</h1><p class="page-description"></p></header><div class="page-body"><p id="da4fbb66-132c-4da9-9698-3a0d3d43e122" class="">
+</p><h3 id="111ad10e-2a27-4064-9a35-acc153a01cb3" class="">Idea Generation</h3><hr id="6c50bdbb-1a34-4581-810c-dcc58dd0d47e"/><ol type="1" id="ea932d07-d417-4b40-9abb-7bb854796571" class="numbered-list" start="1"><li>다같이 혼밥: 혼자 밥먹기 싫은 사람끼리 만나 밥을 먹는 앱(김신협)</li></ol><ol type="1" id="afc5b506-e490-4a49-9ad2-4e87439fb322" class="numbered-list" start="2"><li>서울시 유동인구 디스플레이등</li></ol><ol type="1" id="a5885146-cf88-4539-8102-673e9cc87a07" class="numbered-list" start="3"><li>종합 독서 소모임 책 제목 은 : 오늘의 짧은</li></ol><p id="b394b9a8-2930-442e-9631-907a5c0b6bc0" class="">
+</p><p id="525e852f-85fa-4c07-89ef-774f18d34a23" class="">주거지의 공간감을 위한 서울시 유동인구, 체류인구 전시등</p><p id="c2443f82-e3f3-4ce3-a274-b35701408416" class="">
+</p><p id="3b04c57d-8d44-4ef8-8614-5e24eadbc041" class="">내용정리 : </p><p id="842610d1-96c3-4a16-bc6b-0a13a0dabce2" class="">갑진년 징검다리휴가가 많은 해, </p><p id="67b81281-c260-4d92-b61e-52be5f91796a" class="">AI, GPT등으로 인하여 이사 혹은 이주 그리고 제2 제3의 인생을 살아보기 위한 </p><p id="c827fb54-1f72-4ddf-a3e8-d671744882fe" class="">서울시 내외국인 인구의 이동 (창업, 게스트하우스 등)</p><p id="05d9039c-1434-4455-a599-b69ce43ac683" class="">
+</p><p id="0a72ff0e-355d-41a7-b625-afefddb14ffc" class="">#서울시 열린데이터광장 데이터 링크</p><p id="e93d553f-72c8-4ebc-abd2-77a32cbd5325" class=""><a href="https://data.seoul.go.kr/">https://data.seoul.go.kr/</a></p><p id="314aa833-968a-4826-b802-6bbe968962c0" class="">
+</p><h3 id="1535ebfc-4330-4105-bfcd-4b8f554ad070" class="">Mind Map</h3><hr id="44b14fb0-8fd6-46f2-926e-6d0448496986"/><p id="66408cae-0f57-4704-8387-6646424fe0aa" class=""><a href="https://www.figma.com/file/Pq0SPIVVVQ85p2RFZcz0uJ/%ED%98%BC%EB%B0%A5%EA%B0%99%EC%9D%B4%ED%95%98%EC%9E%90?type=design&amp;node-id=0-1&amp;mode=design&amp;t=h64FkXKpQ9eBKxql-0">https://www.figma.com/file/Pq0SPIVVVQ85p2RFZcz0uJ/%ED%98%BC%EB%B0%A5%EA%B0%99%EC%9D%B4%ED%95%98%EC%9E%90?type=design&amp;node-id=0-1&amp;mode=design&amp;t=h64FkXKpQ9eBKxql-0</a>(김신협)</p><p id="b1d58d8d-987f-4069-b59d-e3b7ae6419bd" class="">
+</p><p id="7067106e-e364-4212-ad42-0c856535b71a" class="">
+</p><h3 id="e0e27835-dd96-446b-b420-f2474f607181" class="">Idea Metrix</h3><hr id="1c5fa02f-3d13-4c04-9d40-01dbd4ba0ef0"/><figure id="04c5e9a0-48f0-4ea4-abc0-237b462b9a6c"><a href="https://www.canva.com/design/DAF4wN4dxVI/0K82TiuEiIxO6vNURXOuRQ/edit?utm_content=DAF4wN4dxVI&amp;utm_campaign=designshare&amp;utm_medium=link2&amp;utm_source=sharebutton" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">메트릭스</div></div><div class="bookmark-href"><img src="https://static.canva.com/static/images/android-192x192-2.png" class="icon bookmark-icon"/>https://www.canva.com/design/DAF4wN4dxVI/0K82TiuEiIxO6vNURXOuRQ/edit?utm_content=DAF4wN4dxVI&amp;utm_campaign=designshare&amp;utm_medium=link2&amp;utm_source=sharebutton</div></div><img src="https://static.canva.com/static/images/fb_cover-1.jpg" class="bookmark-image"/></a></figure><p id="7f296dd8-1681-4bf3-9c47-5e4b0faf1d9a" class="">(김신협)</p><h3 id="82001e0e-c41f-47f4-9482-11106f12366d" class="">Customer Segment</h3><hr id="0706e4a8-8b57-4157-8b97-644651404d0c"/><ul id="f802a134-0fc8-4a31-814e-4facdf5b354b" class="toggle"><li><details open=""><summary>김신협</summary><p id="fbb8613f-9fff-44d1-9dc5-0531b0218aa7" class=""><strong>성별에 따른 세분화:</strong></p><ul id="bb432921-2008-4056-a69e-fc0e5d63886f" class="bulleted-list"><li style="list-style-type:disc"><strong>남성 사용자 그룹</strong></li></ul><ul id="0a0461ac-5e99-4e46-90be-33585a5a25e8" class="bulleted-list"><li style="list-style-type:disc"><strong>여성 사용자 그룹</strong></li></ul><p id="ac53b84a-f6c1-484f-8f6f-92d8aceb7f26" class="">
+</p><p id="e192357f-9014-4d26-8f57-75308157de1e" class=""><strong>연령대에 따른 세분화:</strong></p><ul id="df223d7b-b626-42b7-a62a-7f7a963ad114" class="bulleted-list"><li style="list-style-type:disc"><strong>20대 사용자 그룹</strong></li></ul><ul id="94f57146-67ca-406d-ab96-de424757ef08" class="bulleted-list"><li style="list-style-type:disc"><strong>30대 사용자 그룹</strong></li></ul><ul id="1c761279-167c-4ea7-b5bf-4c26b192dd9b" class="bulleted-list"><li style="list-style-type:disc"><strong>40대 이상 사용자 그룹</strong></li></ul><p id="bf966d51-f584-4fbc-9e62-fafdb387e9fd" class="">
+</p><p id="a156dedb-e01c-4401-8ba3-b74fbfabe354" class=""><strong>음식 선호도에 따른 세분화:</strong></p><ul id="3828e512-5645-4133-9025-81f9c70aa05b" class="bulleted-list"><li style="list-style-type:disc"><strong>채식주의자</strong></li></ul><ul id="52d18f71-a2f2-4f07-b81a-1cd38384067d" class="bulleted-list"><li style="list-style-type:disc"><strong>육식주의자</strong></li></ul><ul id="7d55016f-152c-4c88-9168-1322bf1870b5" class="bulleted-list"><li style="list-style-type:disc"><strong>플렉시테리언</strong></li></ul><p id="24784d95-4922-45e4-81cd-a1cb1500875f" class="">
+</p><p id="28f5b6b1-c9af-4c39-a61b-cb323076a00f" class=""><strong>지역별 세분화:</strong></p><ul id="a311a9cf-ffc9-4cda-b232-1fcaf71d6e8a" class="bulleted-list"><li style="list-style-type:disc"><strong>도</strong></li></ul><ul id="afa935a2-b903-4cdf-aa34-4e3a4df70849" class="bulleted-list"><li style="list-style-type:disc"><strong>시</strong></li></ul><ul id="d3bdc111-86e1-429d-b462-e91cb0714320" class="bulleted-list"><li style="list-style-type:disc"><strong>군</strong></li></ul><ul id="bc443768-cdf4-44b0-84ea-ef2dcc30f82f" class="bulleted-list"><li style="list-style-type:disc"><strong>구</strong></li></ul></details></li></ul><p id="dd0428f6-36f1-4a89-b18f-2596300c14e4" class="">
+</p><p id="36fc76a0-8446-4c68-bbed-496db8855a8a" class="">
+</p><p id="9fd2a178-0b59-4f4c-b5ef-b8a4a0c4bfdc" class="">
+</p><p id="c4eb94fc-b5f2-4452-ba6b-c06855d7d601" class="">
+</p><p id="295c890a-5215-4077-9fde-83762bdf68f2" class="">
+</p><p id="9b05450a-c9d1-4725-95d3-f0726d761b6f" class="">
+</p><p id="e7d646c4-5dcd-497a-95fe-5a6c0d75a0e5" class="">
+</p><h3 id="3ca656c3-f0b0-48a1-8b04-5c1757be8a49" class="">Pernona</h3><hr id="b12ae80c-bec6-4796-a4c2-aee08f44e6d9"/><ul id="e56632ad-a2ed-4374-9492-eb7223600865" class="toggle"><li><details open=""><summary>김신협</summary><p id="826852cf-cb1f-40ce-8e83-6c76332fda64" class=""><strong>이름: 이수민<br/>나이: 27세<br/>성별: 남성<br/>교육 수준: 대학교 졸업<br/>직업: 웹 개발자<br/>소득 수준: 중산층<br/>거주지: 서울시 강남구<br/></strong></p><p id="72ed0c6e-6a2d-449b-9b84-8c4338fc6263" class="">
+</p><p id="dba2674f-82f0-44f2-a2eb-e3a813d7a315" class=""><strong>행동 패턴:</strong></p><p id="d5a07423-4ed9-4453-a215-971dda74eb75" class=""><strong>일상생활: 오전 9시부터 오후 6시까지 일하는 평범한 직장인. 주로 저녁과 주말에 레저 활동을 즐김.</strong></p><p id="d4ef9b76-069d-46aa-94a1-6fa327955343" class="">
+</p><p id="d5ab7413-d6d3-4191-ba3b-8cd711569f9b" class=""><strong>구매 패턴: 음식은 주로 배달 앱을 이용해 주문. 가끔은 직접 요리도 함.</strong></p><p id="65289d18-5c38-46da-b7f7-3310d720d4c9" class="">
+</p><p id="d47fc23a-7798-402d-bf95-4f2ceaf089a3" class=""><strong>소비 습관: 주로 기능성과 편리성을 중시하는 경향. 가격보다 편의성과 서비스의 품질을 더 중요하게 생각함.</strong></p><p id="b20fc221-d7c4-4f30-aab5-83aa6425b065" class="">
+</p><p id="b3a9d943-e211-4422-b36a-b4e75117480d" class=""><strong>레저 활동: 코딩 관련 스터디나 세미나에 참여함. 운동은 주로 헬스장을 이용.</strong></p><p id="915c728c-13b9-430a-a9fa-70e24443647a" class=""><strong>온라인 활동: 개발 관련 커뮤니티에 참여하고, 새로운 기술 트렌드에 대해 학습함.</strong></p><p id="f76d8ee4-45db-4e7c-b022-8919ec67bf44" class="">
+</p><p id="5a4e2661-ae6b-4825-90ae-83454b4b69fa" class=""><strong>관심사와 가치관:</strong></p><p id="0f8af61d-4cbf-4eb5-ba10-2783d5ced1db" class=""><strong>주요 관심사: 웹 개발, 새로운 기술 트렌드, 맛있는 음식</strong></p><p id="67d8a053-8437-4dc3-878e-be61b1dc5165" class=""><strong>가치관과 신념: 꾸준한 학습과 경험을 중요하게 생각함.</strong></p><p id="ff11d208-f02e-4517-824b-701ffd98557f" class=""><strong>선호하는 라이프스타일: 바쁜 일상 속에서도 새로운 사람들과 만나고, 다양한 음식을 경험하는 것을 즐김.</strong></p><p id="4fcbf062-1db5-4b80-a89a-bb792865c6af" class="">
+</p><p id="13de45d0-2f4a-485b-aae4-919682377954" class=""><strong>소비 습관:</strong></p><p id="b88d1d31-70df-4829-84a7-5dfd91b1b02d" class=""><strong>구매 판단 기준: 서비스의 품질과 편의성</strong></p><p id="d8acd10d-623b-4aa0-a085-f637627481ed" class=""><strong>구매 주기: 주 2~3회 외식 혹은 배달음식 </strong></p><p id="62560eac-916e-4f10-b069-865f13820087" class=""><strong>주문브랜드 선호도: 특정 브랜드에 구애받지 않음.</strong></p><p id="3ee3851f-f4b7-4e90-91b5-d9c1db0842b2" class=""><strong>온라인 및 오프라인 쇼핑 선호도: 온라인 쇼핑을 선호함.</strong></p><p id="83aca829-23e8-48fa-b33c-0a64f27ef093" class="">
+</p><p id="b65c2891-3860-4c1a-b684-7543caded128" class=""><strong>채널 선호도:</strong></p><p id="b76325ae-c554-4afe-9eb0-597925b96ba5" class=""><strong>정보 획득을 위해 선호하는 채널: 온라인 검색, SNS, 커뮤니티</strong></p><p id="29bf1b97-81f5-4f62-877b-0c4eba48c31d" class=""><strong>소통 및 소셜 미디어 사용 선호도: 주로 이메일, 채팅을 이용함.</strong></p><p id="35cd9fef-2c5c-44c7-bfa3-e15ae236e945" class=""><strong>온라인 및 오프라인 활동 참여 경로: 온라인 커뮤니티, SNS, 이메일 알림</strong></p><p id="40d0d2fe-311f-4c9a-b5bb-6b5593d94ab5" class="">
+</p><p id="b5544de5-9f99-4287-b5dc-6e36816f8d34" class=""><strong>고객 과제 및 목표:</strong></p><p id="e3b07eee-e98b-43bd-885e-1dbd7f4dde18" class=""><strong>직면한 문제: 혼자서 다양한 음식을 즐기기 어려움, 새로운 사람들과 만날 기회 부족</strong></p><p id="65093e41-9efd-4bc7-81c9-f4feff189cb4" class=""><strong>달성하고자 하는 목표: 다양한 음식을 즐기고, 새로운 사람들과 만나는 것</strong></p><p id="82ae9464-3a97-41dc-a93a-98d5e57e98c4" class=""><strong>제품 또는 서비스를 통해 얻고자 하는 가치: 맛있는 음식 경험, 네트워킹</strong></p><p id="349d23d0-3715-4418-9aa2-375c471313c7" class="">
+</p><p id="169f88ae-437b-4797-b307-28244e678aa9" class=""><strong>기술 및 디바이스 활용:</strong></p><p id="c5bc4068-2df9-4acd-90d5-cda29cea31f1" class=""><strong>어떤 기기를 사용하는지: 스마트폰, 노트북</strong></p><p id="ab3699f5-7230-4a75-b1b4-e3d863039980" class=""><strong>주로 사용하는 앱이나 소프트웨어: 메신저, 이메일, 검색 엔진, </strong></p><p id="6d1b91ad-25b1-46bf-a0cb-726cc107b3b1" class=""><strong>음식 배달 앱기술에 대한 이해 수준: 높음</strong></p><p id="09e5d0e3-245c-4974-9d24-ea1d54927cfd" class="">
+</p><p id="3abf81d8-8a72-41d2-ae9f-7c417275f59d" class=""><strong>대화와 상호작용 스타일:</strong></p><p id="f84a46d7-c845-4b8f-bab9-fcf9c2f4a8b4" class=""><strong>정보 획득 방식: 온라인 검색, 소셜 미디어, 리뷰</strong></p><p id="4c28b8d0-e0c1-4ecd-8765-2bb9905cd4f1" class=""><strong>상호작용하는 데 선호하는 방식: 이메일, 채팅</strong></p><p id="193a4df8-3b0b-4201-9d6c-46aea0206cad" class="">
+</p><p id="3e57e859-9601-4a38-8c22-bba3863778de" class=""><strong>그 외:</strong></p><p id="66752df1-41fb-4846-90fb-2a271cc0facb" class=""><strong>MBTI: INTJ (내향적이고 직관적인 사고를 가진 사람)</strong></p><p id="a7b97304-fdc1-4303-ac1a-83a8acd42ca7" class=""><strong>자주 사용하는 서비스: 검색 엔진, 음식 배달 앱</strong></p><p id="015536c2-ff1c-4f46-b7ca-732c701d6d49" class=""><strong>식습관: 다양한 음식을 좋아함</strong></p><p id="f24854d2-3176-45ca-b954-cd72e75aa7aa" class=""><strong>만나는 사람 패턴: 주로 동료나 동일 관심사를 가진 사람들과 만남</strong></p></details></li></ul></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

@@ -1,0 +1,723 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>시장 분석</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="116cb66f-e60e-4b7b-9038-da3979e40fd4" class="page sans"><header><h1 class="page-title">시장 분석</h1><p class="page-description"></p></header><div class="page-body"><figure id="68fe3271-53c3-4b4c-8438-5e2106c6e479" class="link-to-page"><a href="https://www.notion.so/10-68fe327153c34b4c84385e2106c6e479?pvs=21">10차 기획-시장 분석 및 정의</a></figure><p id="aeb6e959-d733-4157-bc49-05277f1edccd" class="">
+</p><h3 id="672567a0-9383-4b3b-a4e1-08bf12211ef0" class=""><mark class="highlight-default">1. 제품/서비스 기획 동기</mark></h3><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="16cc38b0-c3a2-4549-a77f-c614f702bcfa"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><strong>주문한 식자재가 매번 왜 남을까?</strong><br/>필요한 만큼만! 개당 구매로 합리적인 소비<br/></div></figure><h2 id="2e5435d8-6e4c-465c-9ecd-535f3ed7b617" class="">1) 사회 문제</h2><ul id="230cc835-77ac-49fa-b938-a47c3a56cc9f" class="toggle"><li><details open=""><summary>물가상승률 추이 </summary><figure id="6642f316-0e2a-40d8-967a-f033484eef74"><a href="https://news.kbs.co.kr/news/pc/view/view.do?ncd=7853778" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">2023년 소비자물가 3.6% 상승…12월은 3.2%↑</div><div class="bookmark-description">2023년 소비자물가가 1년 전보다 3.6% 상승한 것으로 집계됐습니다. 올해의 마지막 달 물가상승률은 3.2%로...</div></div><div class="bookmark-href"><img src="https://news.kbs.co.kr/resource/image/common/v1/favorite/favorite.png" class="icon bookmark-icon"/>https://news.kbs.co.kr/news/pc/view/view.do?ncd=7853778</div></div><img src="https://news.kbs.co.kr/data/news/2023/12/29/20231229_hC1woZ.jpg" class="bookmark-image"/></a></figure><p id="1ebe7597-7040-406b-9d3a-3a067fbc01c4" class="">2023년 소비자물가가 1년 전보다 3.6% 상승한 것으로 집계됐습니다.</p><p id="16656be8-392a-44be-b223-eb35883ed293" class="">통계청이 오늘(29일) 발표한 2023년 연간 소비자물가동향을 보면, 올해 소비자물가지수는 111.59(2020년=100)로 2022년보다 3.6% 올랐습니다.</p><p id="cfe825b1-15ed-4155-8cbe-0e2ca1f38a04" class="">지난해(5.1%)보다는 둔화됐지만, 2021년(2.5%)과 비교하면 높은 수준입니다.</p><p id="6241cbe9-feb4-4e8e-ab29-147047ccd14a" class="">코로나 19 이전에는 2016년부터 2018년까지 연속 1%를 보였고, 2019년에는 0.4%까지 낮아졌습니다.</p><p id="be89ead2-805a-4541-8282-b8053d880d03" class="">물가의 기조적 흐름을 보여주는 근원물가, 농산물 및 석유류 제외 지수는 지난해보다 4.0% 상승했습니다.</p><figure id="b0c777c5-ea85-47c9-8ac2-223e6cf1418c"><a href="https://n.news.naver.com/mnews/article/003/0012342902?sid=101" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">&#x27;고물가&#x27; 언제 잡힐까…꿈틀대는 유가에 먹거리 고공행진</div><div class="bookmark-description">#. &quot;요즘 높은 물가에 냉장고 파먹기만 하고 있어요. 마트 가서 몇 개 사지도 않았는데 10만원이 훌쩍 넘어가니 장보기가 무서워요. 이달 아파트 관리비도 얼마나 나올지 걱정입니다.&quot; 설 연휴를 앞두고 정부가 성수품</div></div><div class="bookmark-href"><img src="https://ssl.pstatic.net/static.news/image/news/m/2018/favicon/06/android_legacy_xxxhpdi_192x192.png" class="icon bookmark-icon"/>https://n.news.naver.com/mnews/article/003/0012342902?sid=101</div></div><img src="https://imgnews.pstatic.net/image/003/2024/01/28/NISI20240115_0020194577_web_20240115140249_20240128061805334.jpg?type=w800" class="bookmark-image"/></a></figure><p id="999dafb6-cb38-44bd-9a9a-50f553b7a9b4" class="">#. &quot;요즘 높은 물가에 냉장고 파먹기만 하고 있어요. 마트 가서 몇 개 사지도 않았는데 10만원이 훌쩍 넘어가니 장보기가 무서워요. 이달 아파트 관리비도 얼마나 나올지 걱정입니다.”<br/>설 연휴를 앞두고 정부가 성수품을 포함한 물가 잡기에 안간힘을 쓰고 있지만 서민이 체감하는 장바구니 물가는 과거보다 배로 오른 수준이다. 거기다 국제유가도 두 달 만에 최고치를 찍으면서 시차를 두고 국내 물가를 자극할 우려가 나온다.<br/><br/></p><figure id="bc5bf50f-1f0d-476f-8cbf-af7662e9ccb2"><a href="https://n.news.naver.com/mnews/article/033/0000046760?sid=101" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">서민경제 괴롭힌 물가, 올해는 과연</div><div class="bookmark-description">지난해 서민들을 가장 힘들게 한 건 고물가였다. 치솟은 밥상물가와 공공요금은 서민 삶을 더욱 팍팍하게 했다. 정부는 올 하반기에 물가가 2%대 초반까지 떨어질 것으로 내다본다. 하지만 물가를 자극할 변수가 많다. 지</div></div><div class="bookmark-href"><img src="https://ssl.pstatic.net/static.news/image/news/m/2018/favicon/06/android_legacy_xxxhpdi_192x192.png" class="icon bookmark-icon"/>https://n.news.naver.com/mnews/article/033/0000046760?sid=101</div></div><img src="https://imgnews.pstatic.net/image/033/2024/01/26/0000046760_001_20240126164701088.jpg?type=w800" class="bookmark-image"/></a></figure></details></li></ul><ul id="e2a379c3-c50d-44d2-ac51-af45d5548112" class="toggle"><li><details open=""><summary>한국 물가 상승률</summary><p id="b2c81292-53d1-450c-88c7-18deb0b4e6e6" class=""><a href="https://news.einfomax.co.kr/news/articleView.html?idxno=4235002">https://news.einfomax.co.kr/news/articleView.html?idxno=4235002</a></p><figure id="ae19568b-2326-4a43-a307-2755d278fa93" class="image"><a href="%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%20116cb66fe60e4b7b9038da3979e40fd4/Untitled.png"><img style="width:1049px" src="%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%20116cb66fe60e4b7b9038da3979e40fd4/Untitled.png"/></a></figure></details></li></ul><ul id="420552a4-1cae-4a5a-9d0a-c60e2071ad89" class="toggle"><li><details open=""><summary>1~2인 가구의 증가</summary><figure id="3418385d-d92e-4ccb-8cab-363a34e1b813"><div class="source"><a href="%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%20116cb66fe60e4b7b9038da3979e40fd4/2023%25ED%2586%25B5%25EA%25B3%2584%25EB%25A1%259C%25EB%25B3%25B4%25EB%258A%25941%25EC%259D%25B8%25EA%25B0%2580%25EA%25B5%25AC.pdf">2023+통계로+보는+1인가구.pdf</a></div></figure><figure id="6546f4ac-6407-4e66-8dbe-dd5c210e18a6" class="image"><a href="%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%20116cb66fe60e4b7b9038da3979e40fd4/%25EC%258A%25A4%25ED%2581%25AC%25EB%25A6%25B0%25EC%2583%25B7_2024-01-10_115842.png"><img style="width:1762px" src="%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%20116cb66fe60e4b7b9038da3979e40fd4/%25EC%258A%25A4%25ED%2581%25AC%25EB%25A6%25B0%25EC%2583%25B7_2024-01-10_115842.png"/></a></figure><figure id="574de334-f418-46b1-ba50-bd2f44bc4ac2" class="image"><a href="%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%20116cb66fe60e4b7b9038da3979e40fd4/%25EC%258A%25A4%25ED%2581%25AC%25EB%25A6%25B0%25EC%2583%25B7_2024-01-10_115912.png"><img style="width:1766px" src="%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%20116cb66fe60e4b7b9038da3979e40fd4/%25EC%258A%25A4%25ED%2581%25AC%25EB%25A6%25B0%25EC%2583%25B7_2024-01-10_115912.png"/></a></figure><ul id="fb6f5617-f54b-4022-b33c-42e643907fce" class="bulleted-list"><li style="list-style-type:disc">인구주택총조사 결과를 살펴보면, 전체 가구 수가 증가하는 추세를 확인</li></ul><ul id="b4715fe3-86d1-4195-9494-515223b03378" class="bulleted-list"><li style="list-style-type:disc">가구 구성원은 3,4인 가구의 비율은 감소하고 있는 반면, 1,2인으로 이루어진 소가구의 비율은 점점 늘어나고 있는 것을 볼 수 있음</li></ul></details></li></ul><ul id="2364de95-2d6a-43ce-a452-91d465196bce" class="toggle"><li><details open=""><summary>소상공인 문제, 지역 사회적경제 활성화 아이디어 필요</summary><ul id="6f0aff01-f7ab-467f-8a08-c63000d37a6e" class="bulleted-list"><li style="list-style-type:disc">소상공인/자영업자 등 작은 단위의 골목경제, 우리의 생활권 안에 있는 경제부터 무너지고 있다. 사회적경제는 이것을 중요한 사회 문제로 봐야한다. (<a href="https://www.eroun.net/news/articleView.html?idxno=23501">https://www.eroun.net/news/articleView.html?idxno=23501</a>)</li></ul><ul id="6182fd6c-46b7-47a4-92aa-439949a45eae" class="bulleted-list"><li style="list-style-type:disc">(골목상권 활성화) 사회적경제라는 안전망을 통해서 골목상권의 경쟁력 및 지속가능성을 강화하고자 함</li></ul><ul id="203afd4d-26fa-4942-b032-e9fcbc26f771" class="bulleted-list"><li style="list-style-type:disc">서울 서대문구의 한 마트. 생선·정육 등 신선식품 코너에 있는 주방 한편에 200ℓ짜리 음식물 처리기가 있었다. 직원들은 수시로 뚜껑을 열고 음식 쓰레기를 집어넣었다. 처리기에 들어간 음식 쓰레기는 건조·분해돼 액체 형태로 하수도로 빠져나간다. 마트 관계자는 &quot;쓰레기가 계속 나오다 보니 기계를 24시간 돌려도 꽉 차곤 한다&quot;고 말했다.</li></ul><ul id="ef38d06e-3527-422c-8535-dc018a06204d" class="bulleted-list"><li style="list-style-type:disc">육류 등을 가공하면서 나오는 쓰레기 뿐 아니라 당일 판매 원칙인 야채나 생선도 팔리지 않으면 버려진다. 하지만 하루에 버려지는 양이 얼마나 되는지는 알 수 없다. 마트 관계자는 &quot;배출량이 얼마인지 정확히 모른다. 포장용 플라스틱은 재활용하지만, 솔직히 음식 쓰레기를 줄이려는 생각은 하지 못하고 있다&quot;고 했다.</li></ul></details></li></ul><ul id="34c72401-9ef6-47a3-84c4-6bbb95186ba2" class="toggle"><li><details open=""><summary>인터넷 서비스를 통해 쇼핑을 하는 사람들의 비율 증가(이커머스 시장 이용비율)</summary><figure id="a6de9827-d2cd-4923-8a0d-c84d1a86adc0"><div class="source"><a href="%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%20116cb66fe60e4b7b9038da3979e40fd4/2023%25EB%2585%258411%25EC%259B%2594%25EC%2598%25A8%25EB%259D%25BC%25EC%259D%25B8%25EC%2587%25BC%25ED%2595%2591%25EB%258F%2599%25ED%2596%25A5.pdf">2023년+11월+온라인쇼핑+동향.pdf</a></div></figure><p id="56ec1c9d-8dd4-4f5e-bcd6-e6412229460b" class="">온라인 쇼핑 거래액 현황</p><figure id="99bb581a-20dc-4b26-81bc-bd83f16ec034" class="image"><a href="%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%20116cb66fe60e4b7b9038da3979e40fd4/%25EC%258A%25A4%25ED%2581%25AC%25EB%25A6%25B0%25EC%2583%25B7_2024-01-10_120856.png"><img style="width:1370px" src="%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%20116cb66fe60e4b7b9038da3979e40fd4/%25EC%258A%25A4%25ED%2581%25AC%25EB%25A6%25B0%25EC%2583%25B7_2024-01-10_120856.png"/></a></figure><ul id="41eff6ff-7aa1-4544-84c4-9f0fd81e29a5" class="bulleted-list"><li style="list-style-type:disc">온라인쇼핑 거래액은 20조 8,422억원으로 전년동월대비 13.0%(2조 4,033 억원) 증가 </li></ul><figure id="579722d8-6ade-47a3-b134-4c05bed12d4e" class="image"><a href="%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%20116cb66fe60e4b7b9038da3979e40fd4/%25EC%258A%25A4%25ED%2581%25AC%25EB%25A6%25B0%25EC%2583%25B7_2024-01-10_120906.png"><img style="width:1533px" src="%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%20116cb66fe60e4b7b9038da3979e40fd4/%25EC%258A%25A4%25ED%2581%25AC%25EB%25A6%25B0%25EC%2583%25B7_2024-01-10_120906.png"/></a></figure><figure id="d7f8930e-9db1-4f13-800e-e456c15609e6" class="image"><a href="%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%20116cb66fe60e4b7b9038da3979e40fd4/%25EC%258A%25A4%25ED%2581%25AC%25EB%25A6%25B0%25EC%2583%25B7_2024-01-10_120910.png"><img style="width:1589px" src="%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%20116cb66fe60e4b7b9038da3979e40fd4/%25EC%258A%25A4%25ED%2581%25AC%25EB%25A6%25B0%25EC%2583%25B7_2024-01-10_120910.png"/></a></figure><ul id="5e533d25-12af-4c5f-871f-effd4a475471" class="bulleted-list"><li style="list-style-type:disc">세부적으로 온라인쇼핑 거래액 중 모바일쇼핑은 12.1% 증가한 15조 2,449억원을 기록</li></ul><ul id="296060b2-b191-4169-9351-97b1fa6476fc" class="bulleted-list"><li style="list-style-type:disc">전월대비 온라인 쇼핑 거래액은 4.0%, 모바일쇼핑 거래액은 3.6% 각각 증가</li></ul><figure id="2cd0f188-15cf-4be4-9a7b-2d6ea556eb65" class="image"><a href="%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%20116cb66fe60e4b7b9038da3979e40fd4/%25EC%258A%25A4%25ED%2581%25AC%25EB%25A6%25B0%25EC%2583%25B7_2024-01-10_120921.png"><img style="width:1511px" src="%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%20116cb66fe60e4b7b9038da3979e40fd4/%25EC%258A%25A4%25ED%2581%25AC%25EB%25A6%25B0%25EC%2583%25B7_2024-01-10_120921.png"/></a></figure><ul id="81f5a780-7ea7-4a2a-9fa6-8ca0df890480" class="bulleted-list"><li style="list-style-type:disc">상품군별 모바일쇼핑 거래액은 전년동월대비 컴퓨터 및 주변기기(-4.7%)등에서 감소했으나, 음식료품(16.1%), 여행 및 교통서비스(21.1%), 가전전자(20.7)등에서 증가</li></ul><ul id="8b6234c5-ebed-44ab-a83c-f5bf9fed8a16" class="bulleted-list"><li style="list-style-type:disc">상풍군별 거래액 구성비는 음식서비스(14.0%), 음식료품(12.7%) 순으로 높음</li></ul></details></li></ul><ul id="70dfbe1a-e3c1-4e9a-920f-fc7f1eb8858a" class="toggle"><li><details open=""><summary>물가 상승률<br/><br/></summary><figure id="3109216a-094d-4b43-a43d-544b870a7ee1"><a href="https://n.news.naver.com/mnews/article/003/0012342902?sid=101" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">&#x27;고물가&#x27; 언제 잡힐까…꿈틀대는 유가에 먹거리 고공행진</div><div class="bookmark-description">#. &quot;요즘 높은 물가에 냉장고 파먹기만 하고 있어요. 마트 가서 몇 개 사지도 않았는데 10만원이 훌쩍 넘어가니 장보기가 무서워요. 이달 아파트 관리비도 얼마나 나올지 걱정입니다.&quot; 설 연휴를 앞두고 정부가 성수품</div></div><div class="bookmark-href"><img src="https://ssl.pstatic.net/static.news/image/news/m/2018/favicon/06/android_legacy_xxxhpdi_192x192.png" class="icon bookmark-icon"/>https://n.news.naver.com/mnews/article/003/0012342902?sid=101</div></div><img src="https://imgnews.pstatic.net/image/003/2024/01/28/NISI20240115_0020194577_web_20240115140249_20240128061805334.jpg?type=w800" class="bookmark-image"/></a></figure></details></li></ul><figure id="fd0d3144-d733-4338-a9ae-96c62e1a91cc" class="image"><a href="%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%20116cb66fe60e4b7b9038da3979e40fd4/Untitled%201.png"><img style="width:525px" src="%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%20116cb66fe60e4b7b9038da3979e40fd4/Untitled%201.png"/></a></figure><p id="b2eeb0a8-5afd-4de0-a9cc-7913fa760ad9" class=""><br/><br/><br/></p><h2 id="c11e6e57-d22a-4836-b784-47874a9dd22c" class="">2) 음식물 쓰레기 처리 문제</h2><ul id="80ff89b0-d959-473e-ba3d-a83cda034d26" class="toggle"><li><details open=""><summary>음식물 쓰레기 발생 현황</summary><figure id="ef6fe9df-2283-4ffe-9746-1206e0c33696" class="image"><a href="%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%20116cb66fe60e4b7b9038da3979e40fd4/Untitled%202.png"><img style="width:1200px" src="%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%20116cb66fe60e4b7b9038da3979e40fd4/Untitled%202.png"/></a></figure><ul id="ebf1ed98-a901-46c0-83e1-dd6cec89f780" class="bulleted-list"><li style="list-style-type:disc">음식물 쓰레기 발생의 현황</li></ul><figure id="2cedcb6a-2770-4453-b554-c0836d21bf9a"><a href="https://www.joongang.co.kr/article/25041150#home" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">하루 음식쓰레기 2만t 비밀…4분의 1은 먹기도 전에 버려진다 | 중앙일보</div><div class="bookmark-description">플라스틱 등 다른 환경 이슈에 주목하는 동안 음식 쓰레기는 늘고 있다.</div></div><div class="bookmark-href"><img src="https://img.joongang.co.kr/pubimg/favicon/apple-touch-icon.png" class="icon bookmark-icon"/>https://www.joongang.co.kr/article/25041150#home</div></div><img src="https://pds.joongang.co.kr/news/FbMetaImage/202201/b0fdd481-3cad-41eb-ae24-9ace092b6d55.png/_ir_/resize/1280" class="bookmark-image"/></a></figure><ul id="15fd7ade-9763-4d95-bbac-e81acfc2e75a" class="bulleted-list"><li style="list-style-type:disc"><span style="border-bottom:0.05em solid">세계식량기구(FAO)는 매년 전 세계에서 생산하는 9400억 달러(약 1120조원)의 식품 중 30% 이상이 낭비된다고 추정한다.</span> 버리는 음식만 줄여도 수억명이 배고픔을 면할 수 있다는 얘기다. 음식 쓰레기는 기후 위기와도 직결된다. <span style="border-bottom:0.05em solid">음식 쓰레기를 수거·재활용할 때 배출되는 온실가스가 엄청나기 때문이다.</span></li></ul><ul id="5d4d06d6-73d8-48a3-82bf-c934d4dcc816" class="bulleted-list"><li style="list-style-type:disc"><strong>국내 음식 쓰레기의 4분의 1은 먹기도 전에 버려진다.</strong> 가정·식당 등의 음식 쓰레기는 2016년 1만4669t에서 2019년 1만4548t으로 내려갔다. 하지만 제조·생산에 따른 사업장 폐기물 수치는 같은 기간 계속 올랐다. 법적 정의가 모호한 식품 제조업발(發) 동식물성 잔재물도 2017년 3203t에서 2019년 5066t으로 급증했다. 전체 음식 쓰레기(2만1065t)의 4분의 1에 가까운 수치다.</li></ul><ul id="e42e0226-8c6b-468a-b4bc-31a520b8aa43" class="bulleted-list"><li style="list-style-type:disc">국회입법조사처가 지난해 공개한 식품 손실 관련 보고서에 따르면 종량제 봉투 혼합배출·분리배출·동식물성 잔재물을 모두 합친<span style="border-bottom:0.05em solid"> 식품 폐기물 전체 발생량은 2017년 1만9106t에서 2019년 2만1065t으로 증가했다.</span> 2013년(1만6032t)과 비교하면 <strong>6년 만에 약 31% 늘었다. </strong>1인당 식품 폐기물 발생량(2019년)도 하루 407g에 달한다. 모든 국민이 날마다 삼겹살 2~3인분을 버리는 셈이다.</li></ul><p id="592389fb-2fbb-4527-9a6d-8dc92ccef253" class="">
+</p></details></li></ul><ul id="e31f8db7-7f09-4f23-bf46-261c377d4495" class="toggle"><li><details open=""><summary>음식물류 폐기물의 발생원인</summary><p id="b7505bd2-b310-4a0b-8e3d-9aef10eb5074" class=""><a href="https://ene.gys.or.kr/%ED%8F%90%EA%B8%B0%EB%AC%BC%EC%A0%95%EC%B1%85/%ED%8F%90%EA%B8%B0%EB%AC%BC%EC%A0%9C%EB%8F%84/%ED%8F%90%EA%B8%B0%EB%AC%BC%EA%B4%80%EB%A6%AC/%EB%B6%84%EB%A6%AC%EC%88%98%EA%B1%B0+%EB%B0%8F+%EC%9E%AC%ED%99%9C%EC%9A%A9%ED%99%9C%EC%84%B1%ED%99%94/%EC%9D%8C%EC%8B%9D%EB%AC%BC%EB%A5%98+%ED%8F%90%EA%B8%B0%EB%AC%BC%EC%9D%98+%EB%B0%9C%EC%83%9D%EC%9B%90%EC%9D%B8">https://ene.gys.or.kr/폐기물정책/폐기물제도/폐기물관리/분리수거+및+재활용활성화/음식물류+폐기물의+발생원인</a><br/><br/></p><figure id="50c8b0e5-2d70-42fc-991f-700fb18294f7" class="image"><a href="%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%20116cb66fe60e4b7b9038da3979e40fd4/Untitled%203.png"><img style="width:1252px" src="%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%20116cb66fe60e4b7b9038da3979e40fd4/Untitled%203.png"/></a></figure></details></li></ul><ul id="ccd23aad-aabb-4928-84ef-e1ed855d8669" class="toggle"><li><details open=""><summary>음식물 쓰레기 처리 비용</summary><ul id="bbbcd630-da4e-44ca-85aa-16e1a0bb62b4" class="bulleted-list"><li style="list-style-type:disc">음식물 쓰레기 버린만큼 돈 낸다.<ul id="4e9db355-b638-48f7-9be5-3e121c5b809f" class="bulleted-list"><li style="list-style-type:circle">음식물 쓰레기 처리 기계도 나오고, 불쾌한 냄새가 나지 않도록 기계도 많이 나오고 있는 상황 </li></ul><ul id="5bb0dda4-9c73-4e7e-9516-e690e20bd12f" class="bulleted-list"><li style="list-style-type:circle"><span style="border-bottom:0.05em solid">음식물 쓰레기는 연간 </span><span style="border-bottom:0.05em solid"><strong>8천억원</strong></span><span style="border-bottom:0.05em solid">의 처리 비용과 20조원 이상의 경제적 손실을 발생시킨다.</span> 전국적으로 배출량을 20퍼센트 줄이면 연간 1,600억원의 쓰레기 처리 비용 절감과 에너지 절약 등으로 5조원에 달하는 경제적 이익이 발생할 것으로 환경부는 전망한다.</li></ul><figure id="17d0adf9-268d-46bd-8eae-79dfad2c1046" class="image"><a href="%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%20116cb66fe60e4b7b9038da3979e40fd4/Untitled%204.png"><img style="width:948px" src="%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%20116cb66fe60e4b7b9038da3979e40fd4/Untitled%204.png"/></a></figure></li></ul><ul id="3ec5715b-b765-474b-b268-f384f7d63758" class="bulleted-list"><li style="list-style-type:disc"><strong><strong>10년새 1인당 식품 폐기물 20%↑·처리비용 연 1조…환경 &#x27;발목&#x27;  </strong></strong><a href="https://www.yna.co.kr/view/AKR20211221126900501">https://www.yna.co.kr/view/AKR20211221126900501</a><ul id="08914428-4a5c-402f-a263-aa172ad279be" class="bulleted-list"><li style="list-style-type:circle">한국환경연구원이 최근 국회입법조사처에 제출한 &#x27;식품 손실·폐기량 저감과 관리 정책 동향·입법과제&#x27; 연구용역 보고서를 보면 국내에서 일평균 분리 배출되는 음식물류 폐기물은 2009년 1만3천701t에서 2019년 1만4천314t으로 4.5% 증가했다.</li></ul><figure id="e6193ab5-6b3a-498b-b2ce-83e72b8323e5" class="image"><a href="%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%20116cb66fe60e4b7b9038da3979e40fd4/Untitled%205.png"><img style="width:700px" src="%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%20116cb66fe60e4b7b9038da3979e40fd4/Untitled%205.png"/></a></figure></li></ul><p id="6b546cdb-ba70-44ed-9110-deb1810eadd0" class="">
+</p><ul id="a74bdc4d-4388-499b-b3cd-4ab3ea7a5f54" class="bulleted-list"><li style="list-style-type:disc">음식물 쓰레기 버리려면 kg당 130원 발생</li></ul><figure id="cc80f667-4bd0-4fde-87d9-56c926b5a0b7" class="image"><a href="%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%20116cb66fe60e4b7b9038da3979e40fd4/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2024-01-10_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_2.40.09.png"><img style="width:1866px" src="%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%20116cb66fe60e4b7b9038da3979e40fd4/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2024-01-10_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_2.40.09.png"/></a></figure><p id="03b20822-9950-462d-8dbc-e35a421c9b95" class="">
+</p><ul id="a978897d-bc77-45be-882e-8b52db0a0cd0" class="bulleted-list"><li style="list-style-type:disc"><strong>국민 1인당 연간 음식물쓰레기 배출량 134㎏</strong><ul id="0c5d1d7e-3e32-4b01-aaec-a13d1be04758" class="bulleted-list"><li style="list-style-type:circle"><a href="http://www.hkbs.co.kr/news/articleView.html?idxno=639120">http://www.hkbs.co.kr/news/articleView.html?idxno=639120</a></li></ul><ul id="ea5952fc-7022-45f4-aacd-4febbca7bb3d" class="bulleted-list"><li style="list-style-type:circle">국민 1인당 연간 17,420원의 쓰레기 비용 지불</li></ul></li></ul><p id="cb03a887-261f-4d43-b999-347606c6b04f" class="">
+</p></details></li></ul><ul id="5f08c13a-4631-410c-99bb-7a692ac3184c" class="toggle"><li><details open=""><summary>서울시 음식물 처리비용 </summary><p id="c63dac84-9d37-4042-a7b7-24ec3386ca1a" class=""><a href="https://www.sisaweek.com/news/articleView.html?idxno=125771">https://www.sisaweek.com/news/articleView.html?idxno=125771</a><br/><br/><br/></p><figure id="d4b530de-9ef2-471e-8ad3-c0449be263c8" class="image"><a href="%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%20116cb66fe60e4b7b9038da3979e40fd4/Untitled%206.png"><img style="width:1066px" src="%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%20116cb66fe60e4b7b9038da3979e40fd4/Untitled%206.png"/></a></figure><figure id="427065d4-6fb0-4e2d-bfc1-e152dc4922ab" class="image"><a href="%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%20116cb66fe60e4b7b9038da3979e40fd4/Untitled%207.png"><img style="width:1084px" src="%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%20116cb66fe60e4b7b9038da3979e40fd4/Untitled%207.png"/></a></figure></details></li></ul><ul id="a4dc5d60-bf59-4488-b23c-af52932bbe5b" class="toggle"><li><details open=""><summary>1인가구 증가에 소용량 식품 구매↑..”식재료 낭비 방지”</summary><p id="4e3d2470-12c6-4367-8ec2-e9c9c26db7c1" class="">
+</p><p id="d7202701-128c-470f-9eb8-3ffad1948f6e" class="">1인가구 증가로 소용량 식품을 구매가 늘어나고 있는 것으로 나타났다. 가성비 좋은 대용량 식품을 구매해 다 먹지 못하고 버리는 것보다 먹을 만큼만 구매하는 소비경향을 엿볼 수 있다.</p><p id="7a65c30f-7e54-425a-b077-6701ca08bcee" class="">시장조사전문기업 엠브레인 트렌드모니터는 최근 1~개월 기준 식품 소비(구매) 경험이 있는 전국 만 19~59세 성인남녀 1000명을 대상으로 ‘2023 대용량 vs 소용량 식품 소비 관련 인식 조사’를 실시한 결과 1인가구 증가에 따라 소포장 식품에 대한 관심도 높아진 것으로 나타났다.</p><p id="1ea39f45-d191-4639-9013-551c32af08ba" class="">1인가구는 식재료 낭비 없이(35.0%) 혼자 해결하기 위해(59.9%) 소용량 식품을 구매한다고 응답했다. 대용량 식품이 가성비가 좋을지라도 남아서 버리는 것보다 낭비 없이 먹을 만큼만 구매하는 것이 더 합리적인 선택이라 여기는 것으로 해석된다.</p><p id="431c717d-2a9d-4e6a-8500-5c7a2147947c" class="">소용량 구매의 필요성을 느끼는 식품 종류로는 채소(36.7%), 과일류(29.6%), 수산 식품류(23.2%), 축산 식품류(21.9%) 등 소비기한이 짧거나 식품의 신선도가 중요한 제품들이 꼽혔다.</p><figure id="52557c24-6874-4ab1-8b95-aece8f3c0be9"><div class="source"><a href="https://www.dailypop.kr/news/articleView.html?idxno=69393">https://www.dailypop.kr/news/articleView.html?idxno=69393</a></div></figure><p id="cd95a807-6b1e-49a7-b5a7-2defc0ad2115" class="">
+</p></details></li></ul><ul id="fc9b2de5-dcdc-47f0-8d1f-a9c0d21f7bf2" class="toggle"><li><details open=""><summary><strong>85.9% 장바구니 물가 비싸..외식 보다 집밥 먹는다</strong></summary><p id="089a3855-fd95-47ba-8c1f-1e189b897ff4" class="">서민들의 장바구니 물가 부담이 점점 커지고 있는 상황이다.</p><p id="41a74b06-4561-4064-9102-61a8a5dd8c51" class="">롯데멤버스가 최근 발간한 ‘내일, 우리는’ 리포트에 따르면 올해 장바구니 물가 수준에 대해 응답자 85.9%가 비싸다(‘비싼 편이다’ 55.1%, ‘매우 비싸다’ 30.8%)고 답했다.</p><p id="9b60b936-1a9d-4764-be8f-eda0f37713e1" class="">이에 코로나 엔데믹 이후에도 ‘외식(16.8%)’보다 직접 식료품이나 간편식을 구입해 ‘집밥(45.9%)’을 해먹는 이들이 세 배 가량 많은 것으로 확인됐다.</p><p id="fc7fbd57-809c-4f1a-aca9-ccc6b7aca384" class="">식품 소비 지출액 변화의 이유로는 ‘물가 변화’를 꼽은 응답자가 40.9%로 가장 많았다. 그 다음으로 ‘식생활 구성 변화(12.0%)’, 코로나19 등 ‘사회환경 변화(10.8%)’, 출산, 재택, 출근 등 ‘생활패턴 변화(10.8%)’, ‘식생활 수준 변화(10.1%)’, ‘가구원당 식품 소비량 변화(7.9%)’, ‘가구원 수 변화(7.0%)’ 등 순으로 응답률이 높았다.</p><figure id="fa05ff19-e6f9-4bf6-97eb-53a855444fbf"><div class="source"><a href="https://www.dailypop.kr/news/articleView.html?idxno=73987">https://www.dailypop.kr/news/articleView.html?idxno=73987</a></div></figure></details></li></ul><ul id="b693a193-5486-4dca-bb3b-15826773e327" class="toggle"><li><details open=""><summary><strong>&#x27;MZ&#x27; 1인 가구 공략하는 유통업계···&#x27;소용량&#x27;·가성비&#x27; 내세워</strong></summary><p id="49f2d9ba-7b0b-4260-8e95-d734e83c0906" class="">최근 통계청이 발표한 &#x27;2023 통계로 보는 1인 가구&#x27; 자료에 따르면 지난해 1인 가구 수는 750만 가구를 기록해 전체 가구 수 중 34.5%를 차지하며 역대 최고치를 경신했다. 2015년과 비교했을 때 8년간 230만 가구가 증가했다. 특히 전체 1인 가구 수 중 2030세대가 차지하는 비중은 36.5%로 가장 높게 나타났다.</p><p id="8819e858-9da9-4d04-96b9-439b86194f3f" class="">편의점 CU는 1인 가구 장보기 수요를 겨냥해 소용량 큐브 스테이크를 출시하는 등 소용량‧소포장된 식자재 상품 구색에 주력하고 있다. BGF리테일 관계자에 따르면 CU의 최근 3년간 식재료 전년 대비 매출신장률은 △2021년 21.4% △2022년 19.1% △2023년 24.2%로 매년 크게 증가했다. 특히 지난해 매출에서 2030세대 비중은 각각 20대 32.8%, 30대 30.9%로 전체 63.7%를 차지하는 등 식재료 매출은 1~2인 가구 비중이 높은 20, 30대가 견인한 것으로 분석된다.</p><p id="da498004-834e-4287-82bd-9ed6238f10a7" class="">출처 : 여성경제신문<br/><br/></p><figure id="2a6eb91c-1986-49e2-8451-0825ff042088"><a href="https://www.womaneconomy.co.kr/news/articleView.html?idxno=220678" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">&#x27;MZ&#x27; 1인 가구 공략하는 유통업계···&#x27;소용량&#x27;·가성비&#x27; 내세워</div><div class="bookmark-description">&quot;남김없이 한 끼 해결할 수 있어서 좋아요.&quot;&quot;합리적 소비에 마음이 훨씬 가벼워요.&quot;유통업계가 1인 가구 증가에 발맞춰 2030세대 대상 판매 전략을 다각화하는 것으로 나타났다.11일 여성경제신문 취재를 종합하면 유통업계는 고물가에 따른 소비 패턴 변화와 1인 가구 증가 트렌드를 반영해 &#x27;소용량&#x27;, &#x27;가성비&#x27;, &#x27;MZ세대&#x27; 등의 키워드를 내세우며 판매 패러다임에 변화를 주고 있는 것으로 분석된다.최근 통계청이 발표한 &#x27;2023 통계로 보는 1인 가구&#x27; 자료에 따르면 지난해 1인 가구 수는 750만 가구를 기록해 전체 가구 수 중 3</div></div><div class="bookmark-href"><img src="https://cdn.womaneconomy.co.kr/image/logo/favicon.png" class="icon bookmark-icon"/>https://www.womaneconomy.co.kr/news/articleView.html?idxno=220678</div></div><img src="https://cdn.womaneconomy.co.kr/news/thumbnail/202401/220678_429401_4118_v150.jpg" class="bookmark-image"/></a></figure></details></li></ul><h2 id="c019d8b1-c8a5-4a23-8daa-acbfe9e04b9c" class="">3) 사람들의 니즈</h2><ul id="349a9bef-deb6-452d-96e1-96699727156b" class="toggle"><li><details open=""><summary>구매자의 라이프 스타일 조사</summary><p id="30485f36-aee3-4064-b833-b3f11ddb04ff" class="">1인가구</p><figure id="d7dd67f9-9f27-416b-9c9a-361e4067a45c"><a href="https://m.khan.co.kr/national/national-general/article/202111141025001#c2b" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">10명 중 4명은 &#x27;1인 가구&#x27;···‘직접 요리’ 비율 확 줄어든 까닭</div><div class="bookmark-description">우리나라의 전체 가구 중 1인 가구가 차지하는 비율이 지난 9월말을 기준으로 40%를 넘었다. ...</div></div><div class="bookmark-href"><img src="https://img.khan.co.kr/spko/icon/apple-touch-icon-precomposed-web.png" class="icon bookmark-icon"/>https://m.khan.co.kr/national/national-general/article/202111141025001#c2b</div></div><img src="https://img.khan.co.kr/news/2021/11/14/l_2021111401001789700161391.jpg" class="bookmark-image"/></a></figure><ul id="81e1cf40-5c2d-411b-b2a1-97b53734e756" class="bulleted-list"><li style="list-style-type:disc">그 결과, 1인 가구 중 ‘대부분의 음식을 집에서 직접 만들어 먹는 가구’의 비율이 2019년 이후 급격히 떨어지고 있는 것으로 조사됐다. ‘대부분의 음식을 집에서 직접 만들어먹는 가구’의 비율을 연도별로 보면 2016년 52.6%에서, 2017년 64.4%, 2018년 68.6% 등으로 증가하는 추세를 보였으나, 2019년에는 45.1%로 급감했다. 코로나19 사태가 터진 2020년의 경우에는 이른바 ‘집밥’을 먹는 사람이 늘어나면서 46.7%로 소폭 증가했지만 2018년에 비해서는 급격한 감소세를 벗어나지 못했다.</li></ul><p id="7da8d043-6bd6-48a1-8b44-50e10fba0a64" class="">
+</p><p id="2277d9f6-09b7-48c7-9328-9fa883be8df8" class="">체리슈머</p><figure id="d65fd191-12b4-4eb0-af35-2a46715bfc37"><a href="https://www.i-boss.co.kr/ab-6141-59665" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">요즘 소비자, 체리슈머 공략하는 법 🏹</div><div class="bookmark-description">감자 5kg 6,000원, 10kg 12,000원입니다. 감자볶음이나 감자전 만들어서 먹고 싶은데... 1인 가구여서 혼자 먹기에는 양이 부담스러워서요. 배송비도 아낄 겸 혹시 같이 공동 구매하실 분 있나요? ...</div></div><div class="bookmark-href"><img src="https://www.i-boss.co.kr/favicon.ico" class="icon bookmark-icon"/>https://www.i-boss.co.kr/ab-6141-59665</div></div><img src="https://cdn.ibos.kr/og-BD6140-59665.gif?v=1700028557" class="bookmark-image"/></a></figure><figure id="c8b32251-3d02-4d9c-bcef-d8aaee3318a8"><a href="https://www.newshyu.com/news/articleView.html?idxno=1009930" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">[신문 읽어주는 교수님] 합리적 소비층, &#x27;체리슈머&#x27;에 대해 알아보다</div><div class="bookmark-description">청년층 사이에서 &#x27;체리슈머&#x27;가 급부상하고 있다. &#x27;체리슈머(Cherry-Sumer)&#x27;란 &#x27;체리피커(Cherry-Picker, 케이크 위에 올려진 체리만 빼먹는 사람)에서 비롯된 개념으로, 상품이나 서비스를 구매하지 않고 혜택만 누리는 소비자를 일컫는다. 알뜰한 소비를 하는 전략적인 소비자인 체리슈머들은 자신이 보유한 한정된 자원을 최대한 합리적으로 소비한다. 최근 트렌드로 떠오른 체리슈머에 대해 송유진 경영학부 교수와 이야기를 나눴다.지난해 전년 동기 대비 물가는 5.1퍼센트 상승했으며, 이는 1998년 국제통화기금(IMF) 외환</div></div><div class="bookmark-href"><img src="https://cdn.newshyu.com/image/logo/favicon.png" class="icon bookmark-icon"/>https://www.newshyu.com/news/articleView.html?idxno=1009930</div></div><img src="https://cdn.newshyu.com/news/thumbnail/202305/1009930_220460_397_v150.jpg" class="bookmark-image"/></a></figure><ul id="93219ff7-5023-4e9b-b7f6-07aa1b47ab2f" class="bulleted-list"><li style="list-style-type:disc">리슈머 확산의 대표적인 배경으로 젊은 층의 경제 상황을 꼽았다. 고금리와 고물가, 부채 및 1인 가구의 증가 등의 경제 상황으로 인해 효율적인 구매를 하려는 소비자가 늘고 있다. 송 교는 &quot;수도권의 경우 1인 가정의 수는 40퍼센트를 넘는다&quot;며 &quot;젊은 층은 학자금대출로 인해 부채를 안고 시작하는 경우가 많고, 물가나 경제 상황을 신경 쓰며 신중한 소비를 할 것이다&quot;고 덧붙였다.</li></ul><ul id="6700aa10-138e-4d49-9b8b-3e157ab3c210" class="bulleted-list"><li style="list-style-type:disc">최근 기업들은 체리슈머를 공략한 다양한 마케팅 사업을 펼치고 있다. 편의점이나 대형 마트는 소용량, 소포장 채소나 반찬 등을 생산하고 있다. 배달 플랫폼들은 &#x27;함께 주문&#x27;이라는 서비스를 통해 효율적으로 나눠 구매하는 시스템을 도입했다. </li></ul><p id="0e3ccc12-7c83-4726-8aed-fc0abad90595" class="">
+</p></details></li></ul><ul id="c246f5b1-79d6-4c7b-b2ec-e5a002b67424" class="toggle"><li><details open=""><summary>비교를 통한 합리적인 소비를 하고 싶어하는 사람들(소비패턴)</summary><figure id="4a4ae687-4440-4be7-bff0-0422f5af426d"><div class="source"><a href="%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%20116cb66fe60e4b7b9038da3979e40fd4/%25E1%2584%2589%25E1%2585%25A1%25E1%2584%2585%25E1%2585%25A1%25E1%2586%25B7%25E1%2584%2583%25E1%2585%25B3%25E1%2586%25AF%25E1%2584%258B%25E1%2585%25B4_%25E1%2584%2592%25E1%2585%25A1%25E1%2586%25B8%25E1%2584%2585%25E1%2585%25B5%25E1%2584%258C%25E1%2585%25A5%25E1%2586%25A8%25E1%2584%258B%25E1%2585%25B5%25E1%2586%25AB_%25E1%2584%2580%25E1%2585%25AE%25E1%2584%2586%25E1%2585%25A2%25E1%2584%258B%25E1%2585%25B4%25E1%2584%2589%25E1%2585%25A1%25E1%2584%2580%25E1%2585%25A7%25E1%2586%25AF%25E1%2584%258C%25E1%2585%25A5%25E1%2586%25BC%25E1%2584%2580%25E1%2585%25AA_%25E1%2584%2589%25E1%2585%25A9%25E1%2584%2587%25E1%2585%25B5%25E1%2584%2591%25E1%2585%25A2%25E1%2584%2590%25E1%2585%25A5%25E1%2586%25AB.pdf">사람들의 합리적인 구매의사결정과 소비패턴.pdf</a></div></figure><ul id="08699fbe-5822-47da-b416-321628104461" class="bulleted-list"><li style="list-style-type:disc">2030세대가 생각하는 합리적인 구매의사 결정이란? 정성연구로 밝힌 새로운 소비패턴의 원인 (논문 참고)<figure id="6a009cc3-6440-4153-8603-a6e20a896ac7" class="image"><a href="%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%20116cb66fe60e4b7b9038da3979e40fd4/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2024-01-10_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_12.30.15.png"><img style="width:1894px" src="%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%20116cb66fe60e4b7b9038da3979e40fd4/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2024-01-10_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_12.30.15.png"/></a></figure><figure id="6f006442-712b-43d6-bd27-994c7512cbaa" class="image"><a href="%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%20116cb66fe60e4b7b9038da3979e40fd4/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2024-01-10_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_12.30.46.png"><img style="width:1772px" src="%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%20116cb66fe60e4b7b9038da3979e40fd4/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2024-01-10_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_12.30.46.png"/></a></figure></li></ul><ul id="b47a12e4-3158-44ca-9924-b5b39aa53a08" class="bulleted-list"><li style="list-style-type:disc">즉시 얻을 수 있는 있는 이익을 추구하려 함<ul id="9ddb79ad-9440-46c9-a9d7-32564b7f2419" class="bulleted-list"><li style="list-style-type:circle">행동경제학적이유: 민감성의 체감 / 손실 회피성</li></ul><ul id="718d6d5d-1ac4-49e8-9d74-abb283da6b4d" class="bulleted-list"><li style="list-style-type:circle">사회적 이유 : 소확행 / 가성비 / 가심비 / 가안비 / 보상소비<figure id="e4641c2a-5a92-4ff2-b69f-a06d2b28a59a" class="image"><a href="%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%20116cb66fe60e4b7b9038da3979e40fd4/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2024-01-10_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_12.39.39.png"><img style="width:1818px" src="%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%20116cb66fe60e4b7b9038da3979e40fd4/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2024-01-10_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_12.39.39.png"/></a></figure></li></ul></li></ul><p id="27a9d7f1-c44c-49a3-8be5-6fbfc800431a" class="">
+</p><p id="a3fdf35c-6da1-424d-bd5e-df11ee700751" class="">
+</p></details></li></ul><p id="dccd2df8-de62-4d0c-b3b1-d3745e4d6a1a" class="">
+</p><p id="92a21b7e-64dd-4cfe-85ed-53f71659b4aa" class="">
+</p><p id="5ec90da0-52c0-4463-b617-f4ed3b253daf" class="">
+</p><p id="39cadb4b-f02f-4bdb-968a-1635cad62eaf" class="">
+</p><hr id="85b49d7d-8748-4d2d-b798-0057eec50261"/><h3 id="fd318f95-2ac4-4542-b210-428713e2712b" class="">2. 문제점/니즈 (고객, 사용자)</h3><ul id="73df8ded-e674-4f24-86bd-ce290efb6ffd" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>이동 및 시간 비용</strong></mark><br/>: 여러 슈퍼마켓을 방문하여 가격을 비교할 필요가 없어 이동 비용과 시간을 절약합니다.<br/></li></ul><ul id="8e580aad-c4c2-47d9-8c8f-0434b416115f" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>대량 구매로 인해 발생되는 지출과 쓰레기 낭비</strong></mark><br/>: 싸게 구매하고자 대량 구매했는데, 지출은 크고 다 소비하지 못하여 쓰레기 발생<br/></li></ul><p id="710f703a-c400-4f43-85be-d276ff46f266" class="">
+</p><ul id="fc2bfbc4-d135-4d36-a016-3e107b68587e" class="toggle"><li><details open=""><summary><mark class="highlight-gray"><em>“너무 많아요… 사과 딱 한 알만 주세요” (고객 인터뷰)</em></mark></summary><p id="d03e0f45-23e5-413f-91a7-66df3797dfd3" class=""><strong>‘나홀로 가구&#x27; 700만... 대한민국 산업·경제 구조를 바꾼다</strong></p><p id="002ffc85-66fa-4a1c-b9db-49b009acbe1b" class=""><a href="https://www.womentimes.co.kr/news/articleView.html?idxno=58427">https://www.womentimes.co.kr/news/articleView.html?idxno=58427</a></p><figure id="9f9e24eb-ee48-434a-9b15-fafe7152e5a1" class="image"><a href="%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%20116cb66fe60e4b7b9038da3979e40fd4/Untitled%208.png"><img style="width:1083px" src="%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%20116cb66fe60e4b7b9038da3979e40fd4/Untitled%208.png"/></a></figure></details></li></ul><p id="5b4cf937-2ad8-47c2-aa3a-e2ebd4bc14bf" class="">
+</p><p id="56ef14db-512d-4b63-8fa5-0aac3a0ff2bb" class="">
+</p><p id="f6334ff0-76d6-4a15-b14a-541861052c5a" class="">
+</p><hr id="cb44d9a2-43d6-4917-a4ed-7a656b0a2dde"/><h3 id="61887e33-630c-4dc6-b366-a816e613096d" class="">3. 초기 타겟 고객</h3><ol type="1" id="3f70f026-6d79-4930-a1b1-79d5cfed6061" class="numbered-list" start="1"><li>초기 고객 페르소나 </li></ol><p id="bd337757-ef3c-4227-8514-64dacf3be1f0" class="">: 페르소나 내용 정리 / 페르소나의 과제/목표 정리 (양면 시장일 경우 양쪽 페르소나 특징 둘다 정리)</p><p id="5407c054-a989-43a3-ac23-1d949d401cc2" class="">
+</p><ul id="141f1f08-ee5c-4ff4-ad85-dde4077c6bb2" class="toggle"><li><details open=""><summary><mark class="highlight-blue"><strong>30세 중소기업 사무직 김형석씨 (구매자)</strong></mark></summary><figure id="74de1f69-4f53-4768-88af-bcf07816b4dc" class="image"><a href="CVC%20(Customer%20Value%20Chain)%20396efc023646477196c3b12650a656a4/Untitled.png"><img style="width:1077px" src="CVC%20(Customer%20Value%20Chain)%20396efc023646477196c3b12650a656a4/Untitled.png"/></a></figure><p id="490d0c91-27c4-4118-8ebb-14d2c16f940a" class="">
+</p></details></li></ul><ul id="d60c06b8-02d3-4b02-bc93-0c30136627af" class="toggle"><li><details open=""><summary><strong>20년 마트운영 경력 보유자 50대 남영식씨 (사장님)</strong></summary><figure id="90baa37b-9913-4545-8fb8-6f9ce6209543" class="image"><a href="%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%20116cb66fe60e4b7b9038da3979e40fd4/Untitled%209.png"><img style="width:685px" src="%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%20116cb66fe60e4b7b9038da3979e40fd4/Untitled%209.png"/></a></figure></details></li></ul><p id="459f244b-0e5d-4e57-8e23-e0541fd4b67f" class="">
+</p><p id="037b7ad1-560a-484d-9df0-44ca8a0bcd77" class="">
+</p><p id="2c2c19e6-1cf6-4e2c-8639-871516f498c2" class="">
+</p><hr id="a4889016-cff8-48cb-9a3e-ddc9f5c6e24a"/><h3 id="06a97c92-81be-4100-8042-a27e89922440" class="">4. 해결 방안(Solution)</h3><ul id="9b514d2a-c6ab-4334-8dc0-c3c2d160724a" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>시간 절약과 편리성</strong></mark><br/>: 각 마트를 방문하지 않고도 지도상에 표시된 것으로 다양한 슈퍼마켓의 가격 및 제품 신선도를 효율적으로 비교하기.<br/></li></ul><ul id="295a6070-5d49-4ff1-a25c-def6aaaffbcd" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>합리적인 가격과 양</strong></mark><br/>: 신선한 식자재를 소량의 양을 합리적인 가격으로 구매해서 생활비 절약하기<br/></li></ul><ul id="5c856ce1-5f9c-41dc-97e0-3847da1e1202" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>신선한 재료 구매 가능</strong></mark><br/>: 도보 15분 이내의 마트에서 신선한 식재료를 개당 단위로 소량으로 구매하기.<br/></li></ul><p id="188a1f55-effc-4d5c-b4f9-db638feb10db" class="">
+</p><p id="852c4635-aa37-49d0-bfef-dc740cf8b09b" class="">
+</p><p id="86ece715-166d-49fe-8f59-f804fbdbb7bc" class="">
+</p><hr id="a569285f-7665-4976-84e9-31f168004795"/><h3 id="e639a531-8ee3-4542-ae10-454dec4517b2" class="">5. <strong>서비스 기획 및 소개</strong></h3><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="99840dae-8ebe-4a2e-ac41-6755b9fe5e55"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><strong>인근 마트의 ‘상품 개별 가격’ 표시 서비스</strong><p id="8467aead-eb59-436f-b831-10c4b3a19873" class="">다양한 마트에서 개당 단위별 가격을 보여주는 서비스로, 도보 15분 거리 이내 인근 마트의 최적의 식자재를 빠르게 비교하고 소비할 수 있도록 도와줌</p></div></figure><ul id="46f1f1af-6d30-4cad-bc5c-cec8bd6b80f3" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>빠른 가격 비교</strong></mark><br/>: 마트별 가격 정보를 한 눈에 비교할 수 있어, 예산을 효과적으로 관리하고 이동경로 계획 가능<br/><ul id="f3369ff4-4f4b-4685-ad43-5365ff383295" class="bulleted-list"><li style="list-style-type:circle">효율적인 쇼핑 경험 - 고객이 빠르고 정보에 입각한 구매 결정을 내릴 수 있도록 하여, 시간을 절약하고 최적의 위치의 마트 방문을 유도합니다.</li></ul></li></ul><ul id="8b3971e2-d190-4adf-93a8-05570b8db9b8" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>딱 필요한 소량만 구입 서포트</strong></mark><br/>: 가족의 건강을 위하여 신선한 식자재료 식사를 만들어 먹을 수 있는 혜택 제공.<br/><ul id="77d89a7f-7173-4fbd-bffd-20386647e13d" class="bulleted-list"><li style="list-style-type:circle">음식물 쓰레기 최소화 - 필요한 만큼 식품을 구매해 최대한 음식물 쓰레기를 남기지 않습니다.</li></ul></li></ul><ul id="ef9a52d0-6bfa-4aad-9fba-be14a395b924" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>근처 마트 찾기의 편리함</strong></mark><br/>: 통합된 지도 기능을 통해 가까운 슈퍼마켓을 쉽게 찾을 수 있어, 거리에 대한 불편함을 해결합니다. <br/><ul id="19181f5f-4dde-4b2d-883c-8580fbcc89ed" class="bulleted-list"><li style="list-style-type:circle">신뢰성 있는 신뢰지수 도입 - 거래 후 신뢰성 있는 리뷰를 남기는 기능을 제공하여 거래 마트의 신뢰지수 표시</li></ul></li></ul><p id="4b5d0a86-e563-4668-98ae-58d151cbbfc0" class="">
+</p><ul id="b3251214-788b-4c5d-9362-0bcbf166f060" class="bulleted-list"><li style="list-style-type:disc">웹/앱의 주요 화면의 가이드 제시</li></ul><div id="a8f5e45c-223d-41af-b8d0-e0d59767b1cc" class="column-list"><div id="0b259af6-cac1-44b5-a598-d2100a6cdee6" style="width:62.5%" class="column"><figure id="727f79ae-a981-46f0-8687-73cbda490529" class="image"><a href="%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%20116cb66fe60e4b7b9038da3979e40fd4/Untitled%2010.png"><img style="width:2432px" src="%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%20116cb66fe60e4b7b9038da3979e40fd4/Untitled%2010.png"/></a></figure><p id="9005f8a2-2d98-4df5-ae1c-9eb1ca272c9c" class=""><div class="indented"><p id="584c410e-0b87-458f-a688-a010cfa64ab8" class="">
+</p></div></p></div><div id="f3d1b925-fdbe-426d-9bf6-1ce59de862d7" style="width:37.5%" class="column"><figure id="9a09a192-39f6-4202-82e5-a19800f033aa" class="image"><a href="%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%20116cb66fe60e4b7b9038da3979e40fd4/Untitled%2011.png"><img style="width:571px" src="%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%20116cb66fe60e4b7b9038da3979e40fd4/Untitled%2011.png"/></a></figure></div></div><p id="4768d7c4-5478-4b56-9e1e-40b2f527f2e2" class="">
+</p><p id="6f29e427-3214-4bd8-bc90-e85624556a45" class="">
+</p><p id="ffd15b73-c955-409a-8334-6ed97c0e7e28" class="">
+</p><hr id="570e21c8-6986-4ce9-9d53-c6b7949e779a"/><h3 id="6063173f-e1c8-4138-be24-387289341738" class=""><mark class="highlight-default">6. </mark><mark class="highlight-default"><strong>경쟁사 분석</strong></mark></h3><ol type="1" id="4f921dd5-d2ec-4d3f-b0c3-b004ad35d5d6" class="numbered-list" start="1"><li> 주요 경쟁사 소개</li></ol><ul id="1837dbab-7773-420e-8f3a-9ad5af93637d" class="bulleted-list"><li style="list-style-type:disc">주요  제품/서비스 제공업체의 개요 <ul id="eb96edc1-2486-4ec3-8bd0-6875690ca3fc" class="bulleted-list"><li style="list-style-type:circle">마트 &gt; 신선식품 &gt; <em>과일 / 채소 / 쌀, 잡곡, 견과 / 정육, 계란류 / 수산물, 건해산</em></li></ul></li></ul><figure id="2dc71bcb-e596-4bc0-b7bb-bbcb0b8283b4" class="image"><a href="%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%20116cb66fe60e4b7b9038da3979e40fd4/Untitled%2012.png"><img style="width:8576px" src="%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%20116cb66fe60e4b7b9038da3979e40fd4/Untitled%2012.png"/></a></figure><p id="0eaf4493-7516-43f1-8e79-ee91bf3c3d52" class="">
+</p><ol type="1" id="c34ead21-ec3c-4ecb-834b-9b9363ff9f22" class="numbered-list" start="2"><li>경쟁사의 강점과 약점</li></ol><ul id="71871dad-7644-4b12-8339-a07a84439f4d" class="bulleted-list"><li style="list-style-type:disc">경쟁사들 간의 경쟁 우위와 약점 비교 분석, 타겟 고객층 세분화 등의 실제 적용</li></ul><ul id="ab87bd10-7617-4ccd-a254-fda41a2e99dc" class="bulleted-list"><li style="list-style-type:disc">경쟁사와 차별화된 우리 제품/서비스의 특징 소개</li></ul><p id="56e88292-b005-4f6b-838c-a6bb04ff3bc8" class="">
+</p><p id="c82f5e12-532a-43b5-8dbd-59e987342781" class="">
+</p><ol type="1" id="01b577be-a6ac-43f8-b1c7-3ed60e3b7389" class="numbered-list" start="3"><li>벤치마킹 플랫폼</li></ol><ul id="d0bedc7c-b342-43a3-a888-16af34a89618" class="toggle"><li><details open=""><summary>음식 공유 스페인 어플 ‘too good to go’</summary><p id="3c3dc229-9720-4d7f-af01-3483e3644447" class=""><a href="https://www.androidsis.com/ko/aplicaciones-para-evitar-el-desperdicio-de-comida/">https://www.androidsis.com/ko/aplicaciones-para-evitar-el-desperdicio-de-comida/</a></p><figure id="eb68ffa3-fb8b-494a-982f-131fb94a4753" class="image"><a href="%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%20116cb66fe60e4b7b9038da3979e40fd4/Untitled%2013.png"><img style="width:1317px" src="%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%20116cb66fe60e4b7b9038da3979e40fd4/Untitled%2013.png"/></a></figure></details></li></ul><ul id="4d09607b-d825-44db-84bd-c639848f2617" class="toggle"><li><details open=""><summary>음식 공유 어플 ‘다모고’</summary><p id="1b8ab6a3-458f-42a9-8a30-3b6257572ddf" class=""><a href="https://www.allurekorea.com/2020/04/04/%ED%99%98%EA%B2%BD%EC%9D%84-%EC%83%9D%EA%B0%81%ED%95%98%EB%8A%94-%EC%8A%A4%EB%A7%88%ED%8A%B8%ED%8F%B0-%EC%95%B1-5/">https://www.allurekorea.com/2020/04/04/환경을-생각하는-스마트폰-앱-5/</a><br/><br/></p><figure id="4722be15-cd07-4f14-b073-4f068de8ae1a" class="image"><a href="%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%20116cb66fe60e4b7b9038da3979e40fd4/Untitled%2014.png"><img style="width:1107px" src="%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%20116cb66fe60e4b7b9038da3979e40fd4/Untitled%2014.png"/></a></figure></details></li></ul><ul id="e464cc0b-3ecc-4631-aaa1-5dd2fd9ef537" class="toggle"><li><details open=""><summary>쓰레기 방지 식료품 앱 ‘피닉스’</summary><figure id="973c58f6-3a9a-43da-be8f-89b5f96d3443" class="image"><a href="%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%20116cb66fe60e4b7b9038da3979e40fd4/Untitled%2015.png"><img style="width:1313px" src="%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%20116cb66fe60e4b7b9038da3979e40fd4/Untitled%2015.png"/></a></figure></details></li></ul><ul id="683c4c1d-49e3-498b-948d-5b7e71e53ad8" class="toggle"><li><details open=""><summary>우리 고객니즈랑 비슷한 스페인 어플 Encantado de Comerte</summary><figure id="e823e4a3-7f9b-40ef-9ecc-7d34bbb7a472" class="image"><a href="%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%20116cb66fe60e4b7b9038da3979e40fd4/Untitled%2016.png"><img style="width:1314px" src="%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%20116cb66fe60e4b7b9038da3979e40fd4/Untitled%2016.png"/></a></figure></details></li></ul><ul id="b4c021d2-89eb-4fbd-81dd-1f9d63cf14f5" class="toggle"><li><details open=""><summary>동네 마트 어플 컨셉이 흡사한 ‘토마토’ 어플</summary><figure id="63d414d8-a8db-4877-a079-c935f3900dd1" class="image"><a href="%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%20116cb66fe60e4b7b9038da3979e40fd4/KakaoTalk_20240110_151250001.jpg"><img style="width:1080px" src="%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%20116cb66fe60e4b7b9038da3979e40fd4/KakaoTalk_20240110_151250001.jpg"/></a></figure><figure id="1805313d-a9ff-4960-a441-433a3ed93093" class="image"><a href="%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%20116cb66fe60e4b7b9038da3979e40fd4/KakaoTalk_20240110_151250001_01.jpg"><img style="width:1080px" src="%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%20116cb66fe60e4b7b9038da3979e40fd4/KakaoTalk_20240110_151250001_01.jpg"/></a></figure><figure id="7359debd-607d-4462-98c1-6c9487f4d4b5" class="image"><a href="%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%20116cb66fe60e4b7b9038da3979e40fd4/KakaoTalk_20240110_151250001_02.jpg"><img style="width:1080px" src="%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%20116cb66fe60e4b7b9038da3979e40fd4/KakaoTalk_20240110_151250001_02.jpg"/></a></figure></details></li></ul><ul id="b9f69296-d954-4713-a4e8-a5f21f226365" class="toggle"><li><details open=""><summary>토마토 벤치마킹</summary><p id="59e51222-dc09-4b61-bd60-2a6c1f4fb404" class=""><a href="https://tomato-market.co.kr/sub1_solution.html">https://tomato-market.co.kr/sub1_solution.html</a></p><p id="dbf520d4-9427-474e-931c-6477d6ef44fe" class="">
+</p><figure id="177e5b05-b68c-4191-a8c6-b58cb6b21f9f" class="image"><a href="%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%20116cb66fe60e4b7b9038da3979e40fd4/Untitled%2017.png"><img style="width:1633px" src="%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%20116cb66fe60e4b7b9038da3979e40fd4/Untitled%2017.png"/></a></figure><figure id="0e33dd6a-5832-4694-b9bd-0d90947aacb3" class="image"><a href="%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%20116cb66fe60e4b7b9038da3979e40fd4/Untitled%2018.png"><img style="width:1720px" src="%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%20116cb66fe60e4b7b9038da3979e40fd4/Untitled%2018.png"/></a></figure><figure id="48732dca-4492-44b5-8ba0-d78413a409fe" class="image"><a href="%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%20116cb66fe60e4b7b9038da3979e40fd4/Untitled%2019.png"><img style="width:1741px" src="%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%20116cb66fe60e4b7b9038da3979e40fd4/Untitled%2019.png"/></a></figure><figure id="9370f2f1-2f20-4f1a-80b9-334e1d888d89" class="image"><a href="%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%20116cb66fe60e4b7b9038da3979e40fd4/Untitled%2020.png"><img style="width:1721px" src="%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%20116cb66fe60e4b7b9038da3979e40fd4/Untitled%2020.png"/></a></figure><figure id="63902cb1-184f-4846-ab34-d2904eb2f8a0" class="image"><a href="%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%20116cb66fe60e4b7b9038da3979e40fd4/Untitled%2021.png"><img style="width:1754px" src="%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%20116cb66fe60e4b7b9038da3979e40fd4/Untitled%2021.png"/></a></figure></details></li></ul><p id="54f3e8d5-8a76-461a-a4ab-34cbfd897f2e" class="">
+</p><p id="1f00559b-efe9-41ac-b30c-9ee78d3360c7" class="">
+</p><p id="a9af92b9-d2bc-4606-97f9-f3752e03adb9" class="">
+</p><p id="51d442e7-be8e-40ef-9091-8f7fdbe830c7" class="">
+</p><hr id="d20e45b1-0948-4853-8d35-10ae0102f9b6"/><h3 id="d4703b92-590b-40a5-8a16-b3bdb2e3fe39" class="">7. 로드맵</h3><ol type="1" id="aced319f-2ed4-4b22-95fa-cc0d5464fc59" class="numbered-list" start="1"><li>서비스 고도화 방향</li></ol><div id="49a266e7-6934-4de4-993f-493e970ad573" class="column-list"><div id="56482bf1-cdb4-4060-9d63-b8a9762b969b" style="width:33.33333333333333%" class="column"><ul id="c5e76c76-60e4-4166-8971-7b2c00a55623" class="bulleted-list"><li style="list-style-type:disc">픽업 / 배달 서비스</li></ul></div><div id="dd8579ec-31b2-489e-bec1-a78d84d5beed" style="width:33.33333333333334%" class="column"><ul id="3746d9c7-25e3-4e47-901f-3656da40a697" class="bulleted-list"><li style="list-style-type:disc">커뮤니티</li></ul></div><div id="4c36673c-a225-4250-8eb5-c338db323403" style="width:33.33333333333333%" class="column"><ul id="b40417d6-9dfa-4b44-aca0-eb32f9cf9a2b" class="bulleted-list"><li style="list-style-type:disc">요리 클래스 모임</li></ul><p id="e2fb2cdb-ca5d-462a-87ec-e5795081e646" class="">
+</p></div></div><p id="56e0abd5-353c-4bf9-a923-262107a56612" class="">
+</p><ol type="1" id="63de0b13-6179-4596-8160-dc6b46a5a2d3" class="numbered-list" start="2"><li>비즈니스 고도화 방향</li></ol><ul id="ca58dc61-ae94-480d-99d7-539db29668d0" class="bulleted-list"><li style="list-style-type:disc">마트 묶음별 개당 가격 표시 서비스(오프라인) → 온라인 구매로 확장 → 동네 커뮤니티 확장 → 동네 요리 클래스 모임</li></ul><ul id="e0aa20c2-f14d-4dd1-8366-cce8517d9dea" class="toggle"><li><details open=""><summary><mark class="highlight-gray"><em>연간 20조 가치 쓰레기통에… 환경운동연합 “기후대응 방안.. 머뭇거려서는 안될 일”</em></mark></summary><p id="3c7732b1-43c6-4963-8cf7-d5c3a7fa4d09" class=""><a href="https://n.news.naver.com/mnews/article/417/0000871583?sid=101">https://n.news.naver.com/mnews/article/417/0000871583?sid=101</a><br/><br/></p><figure id="9058983b-b112-4d3f-a578-39cd51a50b7a" class="image"><a href="%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%20116cb66fe60e4b7b9038da3979e40fd4/Untitled%2022.png"><img style="width:1091px" src="%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%86%A8%20116cb66fe60e4b7b9038da3979e40fd4/Untitled%2022.png"/></a></figure></details></li></ul><p id="dc4a04ef-1fa3-4a93-b662-4e096340e6da" class="">
+</p><p id="55e8c504-7ee5-4508-a679-10c664473478" class="">
+</p><p id="6cb8a0b1-1454-47f4-92f1-08edc0b97e7f" class="">
+</p><hr id="052065f6-2fec-417d-83be-57856a3b173e"/><h3 id="381fc0b4-c9bf-4a2d-9791-e87cc839fb8b" class="">8. 팀 소개</h3><ol type="1" id="20c079ea-eab1-41c6-957a-b7957a8237d0" class="numbered-list" start="1"><li>팀 소개</li></ol><p id="eac07b28-8de3-4c92-9974-e9b12a118f0e" class=""> 저희 팀은 각자의 전문성과 다양한 경험을 보유한 전문가들이 모여 창의적이고 혁신적인 비교 쇼핑 플랫폼을 만들기 위해 노력하고 있습니다. 고객 중심의 서비스와 혁신적인 기술을 통해 사용자들에게 가치 있는 경험을 제공하고자 합니다. 데이터 기반의 의사 결정과 끊임없는 혁신을 통해 소비자들이 합리적인 소비를 할 수 있도록 돕는 것이 우리의 목표입니다.</p><p id="3aa30186-692e-4627-8133-2c9f43a15413" class="">
+</p><ol type="1" id="13770a50-d456-424e-a3c5-c3236cf3283f" class="numbered-list" start="2"><li>팀원 구성</li></ol><ul id="5237fbfd-ef0d-4d87-a501-36b98eea87d8" class="bulleted-list"><li style="list-style-type:disc">박정수<ul id="1b663f7b-42e2-4fbb-8f69-a2d1e7bef276" class="bulleted-list"><li style="list-style-type:circle">서비스 브랜딩 및 디자인 방향 설정.</li></ul><ul id="c1fe3f8d-ce92-4d50-b2eb-009824842a46" class="bulleted-list"><li style="list-style-type:circle">프로젝트의 기술적 방향 설정과 개발 과정의 리더십 담당.</li></ul></li></ul><ul id="93a4a0b6-8bb9-40e9-9224-9626786cb4cb" class="bulleted-list"><li style="list-style-type:disc">양지은<ul id="99d344a3-51f3-4951-8ca3-318e2f3cea7e" class="bulleted-list"><li style="list-style-type:circle">팀 내의 기술적 도전과제 해결을 위해 연구 및 개발 활동을 주도 정리.</li></ul><ul id="ba2fd070-c9cc-4fcc-aa85-a40edcd4d04c" class="bulleted-list"><li style="list-style-type:circle">전략적 마케팅 및 사용자 경험 개선을 통한 소비자 획득에 집중.</li></ul></li></ul><ul id="b8cb043b-3dc0-4f0f-8b54-d8eea9a8e3b6" class="bulleted-list"><li style="list-style-type:disc">김신협<ul id="cab363ea-b71d-4013-a507-b90e7621496c" class="bulleted-list"><li style="list-style-type:circle">데이터 분석을 기반으로 한 비즈니스 전략 수립.</li></ul><ul id="c54e65f3-d5e1-433d-b352-56866a051d9a" class="bulleted-list"><li style="list-style-type:circle">서비스 운영과 성과 분석을 통한 효율적인 서비스 제공.</li></ul></li></ul><p id="86ee7c11-363d-4e59-b6bc-457e5930b26d" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

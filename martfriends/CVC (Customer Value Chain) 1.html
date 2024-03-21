@@ -1,0 +1,693 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>CVC (Customer Value Chain)</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="396efc02-3646-4771-96c3-b12650a656a4" class="page sans"><header><h1 class="page-title">CVC (Customer Value Chain)</h1><p class="page-description"></p></header><div class="page-body"><p id="3bec3411-05c4-487c-b462-3de39e86fc04" class=""> <mark class="highlight-gray_background"> 고객 가치 사슬  </mark></p><figure id="c63e223f-d84a-4441-9f86-7b678eb5e520" class="link-to-page"><a href="CVC%20(Customer%20Value%20Chain)%20396efc023646477196c3b12650a656a4/CVC%20%E1%84%80%E1%85%A2%E1%84%82%E1%85%A7%E1%86%B7%20%E1%84%8B%E1%85%A1%E1%86%AB%E1%84%82%E1%85%A2%20c63e223fd84a44419f867b678eb5e520.html"><span class="icon">💡</span>CVC 개념 안내</a></figure><p id="4d336154-a459-4528-9c55-0212c404303d" class="">
+</p><hr id="41ab8580-d539-4e7b-bba4-3d698a31cc37"/><p id="462943dc-d676-400e-8ffc-d047aa7af2ec" class="">
+</p><p id="dfdc0022-7084-405f-a4f1-4df2a1a9ba96" class=""><strong>1. 가치창출 (User Value Creation)</strong></p><ul id="81c63793-1304-4806-91aa-6c5153d05771" class="bulleted-list"><li style="list-style-type:disc"><strong>가치창출:</strong> 마트 묶음별 개당 가격 표시 서비스 플랫폼은 사용자에게 두 가지 주요 가치를 창출합니다. <ul id="ab848c74-db25-4610-900b-5c860673f59d" class="bulleted-list"><li style="list-style-type:circle"><strong>첫째,</strong> <mark class="highlight-orange"><strong>저렴한 가격에 상품을 구매할 수 있는 기회를 제공(편의성)</strong></mark>하여 예산을 절약할 수 있습니다. </li></ul><ul id="fc8c005f-e8f3-4d96-b889-28be3499b754" class="bulleted-list"><li style="list-style-type:circle"><strong>둘째, </strong><mark class="highlight-orange"><strong>음식을 낭비하지 않고 필요한 것만 구매(맞춤형 서비스)</strong></mark>할 수 있습니다. </li></ul><ul id="142d3301-f1af-4893-aa96-b6717cc171cc" class="bulleted-list"><li style="list-style-type:circle"><strong>셋째, </strong><mark class="highlight-orange"><strong>직접 재료를 손질할 필요가 없어 따로 음식물 쓰레기가 발생하지 (시간 절약)</strong></mark><strong> </strong>않습니다.</li></ul><ul id="35ade51c-c256-4a58-9702-45e820316dde" class="bulleted-list"><li style="list-style-type:circle">이는 사용자들에게 경제적인 이점을 제공하며, <span style="border-bottom:0.05em solid">환경적인 측면에서는 버려지는 음식물을 최소화하여 친환경적인 소비에 기여</span>합니다. </li></ul></li></ul><p id="e601cde3-d5e0-42b6-a225-053a08d8421d" class="">
+</p><p id="0f798006-ed1e-47d3-8626-7bcbfc77819d" class=""><strong>2. 비용지불 (User Cost Incurrence)</strong></p><ul id="c01d5e5c-a9b2-43c0-9072-b938eae38517" class="toggle"><li><details open=""><summary>비용지불</summary><p id="ce1e628b-2143-4f94-bcf6-0240c938f6ab" class="">사용자는 플랫폼을 이용하기 위해 비용이라는 가치를 제공하게 됩니다. 회원가입을 위한 정보제공, 거래를 위한 이동에 따른 교통비 등 사용자가 지불해야 하는 항목을 말합니다. 이용자가 중고거래 플랫폼을 이용하게 되는 각 단계에 따라 제공되는 비용지불을 나열하여 정리 합니다.</p></details></li></ul><ul id="db8ab46c-9470-4a28-b00f-19b51a37f90d" class="bulleted-list"><li style="list-style-type:disc"><strong>구매 비용 </strong>: 필요한 재료와 손질 서비스를 이용하기 위한 비용을 지불합니다.</li></ul><ul id="688a79c6-2c29-41ed-9b84-27cd7ebd458b" class="bulleted-list"><li style="list-style-type:disc"><strong>배송 비용 </strong>: 재료를 집이나 지정한 장소로 배송받기 위한 비용을 지불합니다.</li></ul><p id="8d079197-37a3-4727-acc1-92463c815a56" class="">
+</p><p id="35cfe400-1089-45a9-8290-6e42b3961657" class=""><strong>3. 가치잠식 (User Value Erosion)</strong></p><ul id="a2c2bf23-dc0e-4629-adfd-216b2accce88" class="toggle"><li><details open=""><summary>가치잠식</summary><p id="fc308250-0706-4481-8b11-e9466038b4da" class="">서비스를 이용하기 위해서 잠식당하는 이용자의 가치를 말합니다. 서비스 이용시 이용자가 해야 하는 행동 및 시간 등의 가치가 잠식당할 때 이용자들은 해당 서버스에 느끼는 문제점 및 어려움으로 인해 서비스 사용을 중지 한다거나, 회원 탈퇴를 진행하는 경우가 있습니다. 이 때 서비스 제공자는 이용자들의 ‘가치 잠식’ 부분을 서비스 개선 방향으로 생각해 볼 수 있습니다. </p></details></li></ul><ul id="fdb4719e-755b-4a1e-be17-2c2b78e8b7d0" class="bulleted-list"><li style="list-style-type:disc"><strong>가격 :</strong> 소량 판매와 손질 서비스 이용으로 인해 일반적인 재료 구매보다 가격이 높을 수 있습니다.</li></ul><ul id="1007df73-52ce-47e7-b608-de9c149ae19f" class="bulleted-list"><li style="list-style-type:disc"><strong>품질 </strong>: 온라인으로 구매하는 경우, 직접 물건을 보고 선택하지 못하는 한계로 인해 품질에 대한 불확실성이 있습니다.</li></ul><p id="56979a9b-0113-4495-a601-109d28310564" class="">
+</p><p id="cecd2285-1903-4f4d-9fd7-517595f6b3e2" class="">*<mark class="highlight-orange_background"><strong>페르소나</strong></mark></p><ul id="8df3a0d3-c07b-458f-b0d6-042352d840fc" class="toggle"><li><details open=""><summary><mark class="highlight-blue"><strong>30세 중소기업 사무직 김형석씨</strong></mark></summary><figure id="f614bc18-f978-4938-bde5-ca16ba69470b" class="image"><a href="CVC%20(Customer%20Value%20Chain)%20396efc023646477196c3b12650a656a4/Untitled.png"><img style="width:864px" src="CVC%20(Customer%20Value%20Chain)%20396efc023646477196c3b12650a656a4/Untitled.png"/></a></figure><p id="e45d78c1-9d3e-426a-935b-4693f8fa7e03" class="">
+</p></details></li></ul><p id="bc683186-1e3b-4125-86a3-a4e8ea76af12" class="">
+</p><p id="d9020610-41cb-45b0-845d-62df7ceca886" class="">
+</p><div id="ad836405-ee35-44e5-aec6-7931ebece406" class="collection-content"><h4 class="collection-title">인근 마트 묶음별 개당 가격 표시 서비스 (오프라인 이용자) CVC</h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesTitle"><path d="M0.637695 13.1914C1.0957 13.1914 1.32812 13 1.47852 12.5215L2.24414 10.3887H6.14746L6.90625 12.5215C7.05664 13 7.2959 13.1914 7.74707 13.1914C8.22559 13.1914 8.5332 12.9043 8.5332 12.4531C8.5332 12.2891 8.50586 12.1523 8.44434 11.9678L5.41602 3.79199C5.2041 3.21777 4.82129 2.9375 4.19922 2.9375C3.60449 2.9375 3.21484 3.21777 3.0166 3.78516L-0.0322266 12.002C-0.09375 12.1797 -0.121094 12.3232 -0.121094 12.4668C-0.121094 12.918 0.166016 13.1914 0.637695 13.1914ZM2.63379 9.12402L4.17871 4.68066H4.21973L5.76465 9.12402H2.63379ZM12.2793 13.2324C13.3115 13.2324 14.2891 12.6787 14.7129 11.8037H14.7402V12.5762C14.7471 12.9863 15.0273 13.2393 15.4238 13.2393C15.834 13.2393 16.1143 12.9795 16.1143 12.5215V8.00977C16.1143 6.49902 14.9658 5.52148 13.1543 5.52148C11.7666 5.52148 10.6592 6.08887 10.2695 6.99121C10.1943 7.15527 10.1533 7.3125 10.1533 7.46289C10.1533 7.81152 10.4062 8.04395 10.7686 8.04395C11.0215 8.04395 11.2129 7.94824 11.3496 7.73633C11.7529 6.99121 12.2861 6.65625 13.1064 6.65625C14.0977 6.65625 14.6992 7.20996 14.6992 8.1123V8.67285L12.5664 8.7959C10.7686 8.8916 9.77734 9.69824 9.77734 11.0107C9.77734 12.3369 10.8096 13.2324 12.2793 13.2324ZM12.6621 12.1387C11.8008 12.1387 11.2129 11.667 11.2129 10.9561C11.2129 10.2725 11.7598 9.82129 12.7578 9.75977L14.6992 9.62988V10.3203C14.6992 11.3457 13.7969 12.1387 12.6621 12.1387Z"></path></svg></span>단계</th><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesText"><path d="M1.56738 3.25879H14.4258C14.7676 3.25879 15.0479 2.97852 15.0479 2.63672C15.0479 2.29492 14.7744 2.02148 14.4258 2.02148H1.56738C1.21875 2.02148 0.952148 2.29492 0.952148 2.63672C0.952148 2.97852 1.22559 3.25879 1.56738 3.25879ZM1.56738 6.84082H14.4258C14.7676 6.84082 15.0479 6.56055 15.0479 6.21875C15.0479 5.87695 14.7744 5.60352 14.4258 5.60352H1.56738C1.21875 5.60352 0.952148 5.87695 0.952148 6.21875C0.952148 6.56055 1.22559 6.84082 1.56738 6.84082ZM1.56738 10.4229H14.4258C14.7676 10.4229 15.0479 10.1426 15.0479 9.80078C15.0479 9.45898 14.7744 9.18555 14.4258 9.18555H1.56738C1.21875 9.18555 0.952148 9.45898 0.952148 9.80078C0.952148 10.1426 1.22559 10.4229 1.56738 10.4229ZM1.56738 14.0049H8.75879C9.10059 14.0049 9.38086 13.7246 9.38086 13.3828C9.38086 13.041 9.10742 12.7676 8.75879 12.7676H1.56738C1.21875 12.7676 0.952148 13.041 0.952148 13.3828C0.952148 13.7246 1.22559 14.0049 1.56738 14.0049Z"></path></svg></span>가치창출</th><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesText"><path d="M1.56738 3.25879H14.4258C14.7676 3.25879 15.0479 2.97852 15.0479 2.63672C15.0479 2.29492 14.7744 2.02148 14.4258 2.02148H1.56738C1.21875 2.02148 0.952148 2.29492 0.952148 2.63672C0.952148 2.97852 1.22559 3.25879 1.56738 3.25879ZM1.56738 6.84082H14.4258C14.7676 6.84082 15.0479 6.56055 15.0479 6.21875C15.0479 5.87695 14.7744 5.60352 14.4258 5.60352H1.56738C1.21875 5.60352 0.952148 5.87695 0.952148 6.21875C0.952148 6.56055 1.22559 6.84082 1.56738 6.84082ZM1.56738 10.4229H14.4258C14.7676 10.4229 15.0479 10.1426 15.0479 9.80078C15.0479 9.45898 14.7744 9.18555 14.4258 9.18555H1.56738C1.21875 9.18555 0.952148 9.45898 0.952148 9.80078C0.952148 10.1426 1.22559 10.4229 1.56738 10.4229ZM1.56738 14.0049H8.75879C9.10059 14.0049 9.38086 13.7246 9.38086 13.3828C9.38086 13.041 9.10742 12.7676 8.75879 12.7676H1.56738C1.21875 12.7676 0.952148 13.041 0.952148 13.3828C0.952148 13.7246 1.22559 14.0049 1.56738 14.0049Z"></path></svg></span>비용지불</th><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesText"><path d="M1.56738 3.25879H14.4258C14.7676 3.25879 15.0479 2.97852 15.0479 2.63672C15.0479 2.29492 14.7744 2.02148 14.4258 2.02148H1.56738C1.21875 2.02148 0.952148 2.29492 0.952148 2.63672C0.952148 2.97852 1.22559 3.25879 1.56738 3.25879ZM1.56738 6.84082H14.4258C14.7676 6.84082 15.0479 6.56055 15.0479 6.21875C15.0479 5.87695 14.7744 5.60352 14.4258 5.60352H1.56738C1.21875 5.60352 0.952148 5.87695 0.952148 6.21875C0.952148 6.56055 1.22559 6.84082 1.56738 6.84082ZM1.56738 10.4229H14.4258C14.7676 10.4229 15.0479 10.1426 15.0479 9.80078C15.0479 9.45898 14.7744 9.18555 14.4258 9.18555H1.56738C1.21875 9.18555 0.952148 9.45898 0.952148 9.80078C0.952148 10.1426 1.22559 10.4229 1.56738 10.4229ZM1.56738 14.0049H8.75879C9.10059 14.0049 9.38086 13.7246 9.38086 13.3828C9.38086 13.041 9.10742 12.7676 8.75879 12.7676H1.56738C1.21875 12.7676 0.952148 13.041 0.952148 13.3828C0.952148 13.7246 1.22559 14.0049 1.56738 14.0049Z"></path></svg></span>가치잠식</th><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesMultipleSelect"><path d="M1.91602 4.83789C2.44238 4.83789 2.87305 4.40723 2.87305 3.87402C2.87305 3.34766 2.44238 2.91699 1.91602 2.91699C1.38281 2.91699 0.952148 3.34766 0.952148 3.87402C0.952148 4.40723 1.38281 4.83789 1.91602 4.83789ZM5.1084 4.52344H14.3984C14.7607 4.52344 15.0479 4.23633 15.0479 3.87402C15.0479 3.51172 14.7607 3.22461 14.3984 3.22461H5.1084C4.74609 3.22461 4.45898 3.51172 4.45898 3.87402C4.45898 4.23633 4.74609 4.52344 5.1084 4.52344ZM1.91602 9.03516C2.44238 9.03516 2.87305 8.60449 2.87305 8.07129C2.87305 7.54492 2.44238 7.11426 1.91602 7.11426C1.38281 7.11426 0.952148 7.54492 0.952148 8.07129C0.952148 8.60449 1.38281 9.03516 1.91602 9.03516ZM5.1084 8.7207H14.3984C14.7607 8.7207 15.0479 8.43359 15.0479 8.07129C15.0479 7.70898 14.7607 7.42188 14.3984 7.42188H5.1084C4.74609 7.42188 4.45898 7.70898 4.45898 8.07129C4.45898 8.43359 4.74609 8.7207 5.1084 8.7207ZM1.91602 13.2324C2.44238 13.2324 2.87305 12.8018 2.87305 12.2686C2.87305 11.7422 2.44238 11.3115 1.91602 11.3115C1.38281 11.3115 0.952148 11.7422 0.952148 12.2686C0.952148 12.8018 1.38281 13.2324 1.91602 13.2324ZM5.1084 12.918H14.3984C14.7607 12.918 15.0479 12.6309 15.0479 12.2686C15.0479 11.9062 14.7607 11.6191 14.3984 11.6191H5.1084C4.74609 11.6191 4.45898 11.9062 4.45898 12.2686C4.45898 12.6309 4.74609 12.918 5.1084 12.918Z"></path></svg></span>서비스 개선 영역</th><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesText"><path d="M1.56738 3.25879H14.4258C14.7676 3.25879 15.0479 2.97852 15.0479 2.63672C15.0479 2.29492 14.7744 2.02148 14.4258 2.02148H1.56738C1.21875 2.02148 0.952148 2.29492 0.952148 2.63672C0.952148 2.97852 1.22559 3.25879 1.56738 3.25879ZM1.56738 6.84082H14.4258C14.7676 6.84082 15.0479 6.56055 15.0479 6.21875C15.0479 5.87695 14.7744 5.60352 14.4258 5.60352H1.56738C1.21875 5.60352 0.952148 5.87695 0.952148 6.21875C0.952148 6.56055 1.22559 6.84082 1.56738 6.84082ZM1.56738 10.4229H14.4258C14.7676 10.4229 15.0479 10.1426 15.0479 9.80078C15.0479 9.45898 14.7744 9.18555 14.4258 9.18555H1.56738C1.21875 9.18555 0.952148 9.45898 0.952148 9.80078C0.952148 10.1426 1.22559 10.4229 1.56738 10.4229ZM1.56738 14.0049H8.75879C9.10059 14.0049 9.38086 13.7246 9.38086 13.3828C9.38086 13.041 9.10742 12.7676 8.75879 12.7676H1.56738C1.21875 12.7676 0.952148 13.041 0.952148 13.3828C0.952148 13.7246 1.22559 14.0049 1.56738 14.0049Z"></path></svg></span>개선 방향</th></tr></thead><tbody><tr id="39901c49-610c-4e7a-9f18-fe40dfe2022d"><td class="cell-title"><a href="CVC%20(Customer%20Value%20Chain)%20396efc023646477196c3b12650a656a4/%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%B3%E1%86%AB%20%E1%84%86%E1%85%A1%E1%84%90%E1%85%B3%20%E1%84%86%E1%85%AE%E1%86%A9%E1%84%8B%E1%85%B3%E1%86%B7%E1%84%87%E1%85%A7%E1%86%AF%20%E1%84%80%E1%85%A2%E1%84%83%E1%85%A1%E1%86%BC%20%E1%84%80%E1%85%A1%E1%84%80%E1%85%A7%E1%86%A8%20%E1%84%91%E1%85%AD%E1%84%89%E1%85%B5%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20(%E1%84%8B%E1%85%A9%E1%84%91%201d6760124edc4320bacb8eb83aadd5fd/1%20%E1%84%80%E1%85%AE%E1%84%86%E1%85%A2%20%E1%84%80%E1%85%A7%E1%86%AF%E1%84%89%E1%85%B5%E1%86%B7%2039901c49610c4e7a9f18fe40dfe2022d.html">1. 구매 결심</a></td><td class="cell-~p:d"></td><td class="cell-mljn"></td><td class="cell-gJXY"></td><td class="cell-`:fP"></td><td class="cell-A`tp"></td></tr><tr id="3a13e06e-f30e-4a02-b620-dab13daae162"><td class="cell-title"><a href="CVC%20(Customer%20Value%20Chain)%20396efc023646477196c3b12650a656a4/%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%B3%E1%86%AB%20%E1%84%86%E1%85%A1%E1%84%90%E1%85%B3%20%E1%84%86%E1%85%AE%E1%86%A9%E1%84%8B%E1%85%B3%E1%86%B7%E1%84%87%E1%85%A7%E1%86%AF%20%E1%84%80%E1%85%A2%E1%84%83%E1%85%A1%E1%86%BC%20%E1%84%80%E1%85%A1%E1%84%80%E1%85%A7%E1%86%A8%20%E1%84%91%E1%85%AD%E1%84%89%E1%85%B5%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20(%E1%84%8B%E1%85%A9%E1%84%91%201d6760124edc4320bacb8eb83aadd5fd/2%20%E1%84%89%E1%85%B5%E1%86%A8%E1%84%8C%E1%85%A1%E1%84%8C%E1%85%A2%201,2%E1%84%80%E1%85%A2%20%E1%84%80%E1%85%AE%E1%84%86%E1%85%A2%20%E1%84%92%E1%85%A1%E1%84%80%E1%85%A9%20%E1%84%89%E1%85%B5%E1%87%81%E1%84%8B%E1%85%B3%E1%86%AB%E1%84%83%E1%85%A6,%20%E1%84%83%E1%85%A2%E1%84%92%E1%85%A7%E1%86%BC%E1%84%86%E1%85%A1%E1%84%90%E1%85%B3%E1%84%82%E1%85%B3%E1%86%AB%20%E1%84%82%203a13e06ef30e4a02b620dab13daae162.html">2. 식자재 1,2개 구매 하고 싶은데, 대형마트는 너무 멀다.</a></td><td class="cell-~p:d"></td><td class="cell-mljn"></td><td class="cell-gJXY">위치 검색 시간 소요</td><td class="cell-`:fP"><span class="selected-value select-value-color-purple">개선구간</span></td><td class="cell-A`tp"></td></tr><tr id="c7db76a4-74ce-477c-a0d3-12820076d147"><td class="cell-title"><a href="CVC%20(Customer%20Value%20Chain)%20396efc023646477196c3b12650a656a4/%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%B3%E1%86%AB%20%E1%84%86%E1%85%A1%E1%84%90%E1%85%B3%20%E1%84%86%E1%85%AE%E1%86%A9%E1%84%8B%E1%85%B3%E1%86%B7%E1%84%87%E1%85%A7%E1%86%AF%20%E1%84%80%E1%85%A2%E1%84%83%E1%85%A1%E1%86%BC%20%E1%84%80%E1%85%A1%E1%84%80%E1%85%A7%E1%86%A8%20%E1%84%91%E1%85%AD%E1%84%89%E1%85%B5%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20(%E1%84%8B%E1%85%A9%E1%84%91%201d6760124edc4320bacb8eb83aadd5fd/3%20%E1%84%8C%E1%85%B5%E1%86%B8%20%E1%84%80%E1%85%B3%E1%86%AB%E1%84%8E%E1%85%A5%20%E1%84%80%E1%85%A1%E1%84%81%E1%85%A1%E1%84%8B%E1%85%AE%E1%86%AB%20%E1%84%86%E1%85%A1%E1%84%90%E1%85%B3%E1%84%80%E1%85%A1%20%E1%84%8B%E1%85%B5%E1%86%BB%E1%84%82%E1%85%B3%E1%86%AB%E1%84%8C%E1%85%B5%20%E1%84%8C%E1%85%B5%E1%84%83%E1%85%A9%E1%84%8B%E1%85%A6%20%E1%84%80%E1%85%A5%E1%86%B7%E1%84%89%E1%85%A2%E1%86%A8%E1%84%92%20c7db76a474ce477ca0d312820076d147.html">3. 집 근처 가까운 마트가 있는지 지도에 검색해보고 마감시간을 확인한다.</a></td><td class="cell-~p:d"></td><td class="cell-mljn"></td><td class="cell-gJXY">위치 검색 시간 소요</td><td class="cell-`:fP"><span class="selected-value select-value-color-purple">개선구간</span></td><td class="cell-A`tp"></td></tr><tr id="d4648d51-6121-41ed-b9a1-c36fd8b4f86a"><td class="cell-title"><a href="CVC%20(Customer%20Value%20Chain)%20396efc023646477196c3b12650a656a4/%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%B3%E1%86%AB%20%E1%84%86%E1%85%A1%E1%84%90%E1%85%B3%20%E1%84%86%E1%85%AE%E1%86%A9%E1%84%8B%E1%85%B3%E1%86%B7%E1%84%87%E1%85%A7%E1%86%AF%20%E1%84%80%E1%85%A2%E1%84%83%E1%85%A1%E1%86%BC%20%E1%84%80%E1%85%A1%E1%84%80%E1%85%A7%E1%86%A8%20%E1%84%91%E1%85%AD%E1%84%89%E1%85%B5%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20(%E1%84%8B%E1%85%A9%E1%84%91%201d6760124edc4320bacb8eb83aadd5fd/4%20%E1%84%80%E1%85%A1%E1%84%80%E1%85%A7%E1%86%A8%E1%84%8B%E1%85%B5%20%E1%84%8B%E1%85%A5%E1%86%AF%E1%84%86%E1%85%A1%E1%84%82%E1%85%A1%20%E1%84%87%E1%85%B5%E1%84%8A%E1%85%A1%E1%86%AB%E1%84%8C%E1%85%B5%E1%84%82%E1%85%B3%E1%86%AB%20%E1%84%86%E1%85%A9%E1%84%85%E1%85%B3%E1%84%82%E1%85%B3%E1%86%AB%20%E1%84%89%E1%85%A1%E1%86%BC%E1%84%90%E1%85%A2%E1%84%8B%E1%85%A6%E1%84%89%E1%85%A5%20%E1%84%8B%E1%85%B5%E1%86%AF%20d4648d51612141edb9a1c36fd8b4f86a.html">4. 가격이 얼마나 비싼지는 모르는 상태에서 일단 필요한 식자재를 구매하러 간다.</a></td><td class="cell-~p:d"></td><td class="cell-mljn"></td><td class="cell-gJXY">마트의 식자재 가격을 모르는 상태에서 거리만 확인하고 이동하는 감수</td><td class="cell-`:fP"><span class="selected-value select-value-color-purple">개선구간</span></td><td class="cell-A`tp">2,3,4 공통 개선 방향<br/>지도상으로 한눈에 알아보기 쉽도록 원하는 상품 개당 가격 표시<br/></td></tr><tr id="faa6115d-0857-4f35-bd3a-6b3046fe2854"><td class="cell-title"><a href="CVC%20(Customer%20Value%20Chain)%20396efc023646477196c3b12650a656a4/%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%B3%E1%86%AB%20%E1%84%86%E1%85%A1%E1%84%90%E1%85%B3%20%E1%84%86%E1%85%AE%E1%86%A9%E1%84%8B%E1%85%B3%E1%86%B7%E1%84%87%E1%85%A7%E1%86%AF%20%E1%84%80%E1%85%A2%E1%84%83%E1%85%A1%E1%86%BC%20%E1%84%80%E1%85%A1%E1%84%80%E1%85%A7%E1%86%A8%20%E1%84%91%E1%85%AD%E1%84%89%E1%85%B5%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20(%E1%84%8B%E1%85%A9%E1%84%91%201d6760124edc4320bacb8eb83aadd5fd/5%20%E1%84%89%E1%85%A1%E1%84%80%E1%85%A9%20%E1%84%89%E1%85%B5%E1%87%81%E1%84%8B%E1%85%B3%E1%86%AB%20%E1%84%86%E1%85%AE%E1%86%AF%E1%84%80%E1%85%A5%E1%86%AB%E1%84%8B%E1%85%B3%E1%86%AF%20%E1%84%87%E1%85%B5%E1%84%80%E1%85%AD%E1%84%92%E1%85%A2%20%E1%84%87%E1%85%A9%E1%86%AB%E1%84%83%E1%85%A1%20faa6115d08574f35bd3a6b3046fe2854.html">5. 사고 싶은 물건을 비교해 본다.</a></td><td class="cell-~p:d"></td><td class="cell-mljn"></td><td class="cell-gJXY">신선도와 가격 비교하며 구매 결정까지 걸리는 지체시간 소요</td><td class="cell-`:fP"><span class="selected-value select-value-color-purple">개선구간</span></td><td class="cell-A`tp">당근의 매너온도처럼 마트의 고객리뷰에 따른 신뢰도 지수화</td></tr><tr id="6419b404-6632-4a16-b483-5e9b194e3782"><td class="cell-title"><a href="CVC%20(Customer%20Value%20Chain)%20396efc023646477196c3b12650a656a4/%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%B3%E1%86%AB%20%E1%84%86%E1%85%A1%E1%84%90%E1%85%B3%20%E1%84%86%E1%85%AE%E1%86%A9%E1%84%8B%E1%85%B3%E1%86%B7%E1%84%87%E1%85%A7%E1%86%AF%20%E1%84%80%E1%85%A2%E1%84%83%E1%85%A1%E1%86%BC%20%E1%84%80%E1%85%A1%E1%84%80%E1%85%A7%E1%86%A8%20%E1%84%91%E1%85%AD%E1%84%89%E1%85%B5%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20(%E1%84%8B%E1%85%A9%E1%84%91%201d6760124edc4320bacb8eb83aadd5fd/6%20%E1%84%8B%E1%85%AF%E1%86%AB%E1%84%92%E1%85%A1%E1%84%82%E1%85%B3%E1%86%AB%20%E1%84%86%E1%85%AE%E1%86%AF%E1%84%80%E1%85%A5%E1%86%AB%E1%84%8B%E1%85%B3%E1%86%AF%20%E1%84%8C%E1%85%A1%E1%86%BC%E1%84%87%E1%85%A1%E1%84%80%E1%85%AE%E1%84%82%E1%85%B5%E1%84%8B%E1%85%A6%20%E1%84%83%E1%85%A1%E1%86%B7%E1%84%82%E1%85%B3%E1%86%AB%E1%84%83%E1%85%A1%206419b40466324a16b4835e9b194e3782.html">6. 원하는 물건을 장바구니에 담는다.</a></td><td class="cell-~p:d"></td><td class="cell-mljn"></td><td class="cell-gJXY"></td><td class="cell-`:fP"></td><td class="cell-A`tp"></td></tr><tr id="fd1ddbfa-97e1-4c17-9bf3-bd29e1ae7153"><td class="cell-title"><a href="CVC%20(Customer%20Value%20Chain)%20396efc023646477196c3b12650a656a4/%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%B3%E1%86%AB%20%E1%84%86%E1%85%A1%E1%84%90%E1%85%B3%20%E1%84%86%E1%85%AE%E1%86%A9%E1%84%8B%E1%85%B3%E1%86%B7%E1%84%87%E1%85%A7%E1%86%AF%20%E1%84%80%E1%85%A2%E1%84%83%E1%85%A1%E1%86%BC%20%E1%84%80%E1%85%A1%E1%84%80%E1%85%A7%E1%86%A8%20%E1%84%91%E1%85%AD%E1%84%89%E1%85%B5%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20(%E1%84%8B%E1%85%A9%E1%84%91%201d6760124edc4320bacb8eb83aadd5fd/7%20%E1%84%90%E1%85%A1%E1%86%B7%E1%84%89%E1%85%A2%E1%86%A8%E1%84%80%E1%85%AA%E1%84%8C%E1%85%A5%E1%86%BC%E1%84%8B%E1%85%B3%E1%86%AF%20%E1%84%87%E1%85%A1%E1%86%AB%E1%84%87%E1%85%A9%E1%86%A8%E1%84%92%E1%85%A1%E1%86%AB%E1%84%83%E1%85%A1%20fd1ddbfa97e14c179bf3bd29e1ae7153.html">7. 탐색과정을 반복한다</a></td><td class="cell-~p:d"></td><td class="cell-mljn"></td><td class="cell-gJXY"></td><td class="cell-`:fP"></td><td class="cell-A`tp"></td></tr><tr id="14c87462-d1a1-44c4-993f-bdd0ce30d814"><td class="cell-title"><a href="CVC%20(Customer%20Value%20Chain)%20396efc023646477196c3b12650a656a4/%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%B3%E1%86%AB%20%E1%84%86%E1%85%A1%E1%84%90%E1%85%B3%20%E1%84%86%E1%85%AE%E1%86%A9%E1%84%8B%E1%85%B3%E1%86%B7%E1%84%87%E1%85%A7%E1%86%AF%20%E1%84%80%E1%85%A2%E1%84%83%E1%85%A1%E1%86%BC%20%E1%84%80%E1%85%A1%E1%84%80%E1%85%A7%E1%86%A8%20%E1%84%91%E1%85%AD%E1%84%89%E1%85%B5%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20(%E1%84%8B%E1%85%A9%E1%84%91%201d6760124edc4320bacb8eb83aadd5fd/8%20%E1%84%80%E1%85%A8%E1%84%89%E1%85%A1%E1%86%AB%E1%84%83%E1%85%A2%20%E1%84%8B%E1%85%A1%E1%87%81%E1%84%8B%E1%85%A6%20%E1%84%80%E1%85%A1%E1%84%89%E1%85%A5%20%E1%84%80%E1%85%A7%E1%86%AF%E1%84%8C%E1%85%A6%E1%84%92%E1%85%A1%E1%86%AB%E1%84%83%E1%85%A1%2014c87462d1a144c4993fbdd0ce30d814.html">8. 계산대 앞에 가서 결제한다.</a></td><td class="cell-~p:d"></td><td class="cell-mljn">개인정보 지급</td><td class="cell-gJXY">계산대 앞으로 가서 대면으로 결제하는데 걸리는 시간 소요</td><td class="cell-`:fP"><span class="selected-value select-value-color-purple">개선구간</span></td><td class="cell-A`tp">미리 온라인으로 결제하기(픽업)</td></tr><tr id="d55b41c2-662b-4fa6-9f0c-ffb154852fc6"><td class="cell-title"><a href="CVC%20(Customer%20Value%20Chain)%20396efc023646477196c3b12650a656a4/%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%B3%E1%86%AB%20%E1%84%86%E1%85%A1%E1%84%90%E1%85%B3%20%E1%84%86%E1%85%AE%E1%86%A9%E1%84%8B%E1%85%B3%E1%86%B7%E1%84%87%E1%85%A7%E1%86%AF%20%E1%84%80%E1%85%A2%E1%84%83%E1%85%A1%E1%86%BC%20%E1%84%80%E1%85%A1%E1%84%80%E1%85%A7%E1%86%A8%20%E1%84%91%E1%85%AD%E1%84%89%E1%85%B5%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20(%E1%84%8B%E1%85%A9%E1%84%91%201d6760124edc4320bacb8eb83aadd5fd/9%20%E1%84%92%E1%85%A1%E1%86%AF%E1%84%8B%E1%85%B5%E1%86%AB(%E1%84%91%E1%85%A9%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%90%E1%85%B3,%E1%84%8F%E1%85%AE%E1%84%91%E1%85%A9%E1%86%AB%20%E1%84%83%E1%85%B3%E1%86%BC)%E1%84%8B%E1%85%B3%E1%86%AF%20%E1%84%87%E1%85%A1%E1%86%AE%E1%84%80%E1%85%A9%20%E1%84%80%E1%85%A7%E1%86%AF%E1%84%8C%E1%85%A6%20%E1%84%8C%E1%85%B5%E1%86%AB%E1%84%92%E1%85%A2%E1%86%BC%20d55b41c2662b4fa69f0cffb154852fc6.html">9. 할인(포인트,쿠폰 등)을 받고 결제 진행</a></td><td class="cell-~p:d"></td><td class="cell-mljn">할인수단(쿠폰, 적립금 등) 사용</td><td class="cell-gJXY"></td><td class="cell-`:fP"></td><td class="cell-A`tp"></td></tr><tr id="bec66add-0859-4c47-b586-33f7c08a62be"><td class="cell-title"><a href="CVC%20(Customer%20Value%20Chain)%20396efc023646477196c3b12650a656a4/%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%B3%E1%86%AB%20%E1%84%86%E1%85%A1%E1%84%90%E1%85%B3%20%E1%84%86%E1%85%AE%E1%86%A9%E1%84%8B%E1%85%B3%E1%86%B7%E1%84%87%E1%85%A7%E1%86%AF%20%E1%84%80%E1%85%A2%E1%84%83%E1%85%A1%E1%86%BC%20%E1%84%80%E1%85%A1%E1%84%80%E1%85%A7%E1%86%A8%20%E1%84%91%E1%85%AD%E1%84%89%E1%85%B5%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20(%E1%84%8B%E1%85%A9%E1%84%91%201d6760124edc4320bacb8eb83aadd5fd/10%20%E1%84%80%E1%85%A7%E1%86%AF%E1%84%8C%E1%85%A6%E1%84%92%E1%85%AE%20%E1%84%91%E1%85%A9%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%90%E1%85%B3%E1%84%85%E1%85%B3%E1%86%AF%20%E1%84%8C%E1%85%A5%E1%86%A8%E1%84%85%E1%85%B5%E1%86%B8%E1%84%92%E1%85%A1%E1%86%AB%E1%84%83%E1%85%A1%20bec66add08594c47b58633f7c08a62be.html">10. 결제후 포인트를 적립한다.</a></td><td class="cell-~p:d">적립금 획득</td><td class="cell-mljn"></td><td class="cell-gJXY"></td><td class="cell-`:fP"></td><td class="cell-A`tp"></td></tr><tr id="5e392493-13d3-4f32-98d5-003d79d527d0"><td class="cell-title"><a href="CVC%20(Customer%20Value%20Chain)%20396efc023646477196c3b12650a656a4/%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%B3%E1%86%AB%20%E1%84%86%E1%85%A1%E1%84%90%E1%85%B3%20%E1%84%86%E1%85%AE%E1%86%A9%E1%84%8B%E1%85%B3%E1%86%B7%E1%84%87%E1%85%A7%E1%86%AF%20%E1%84%80%E1%85%A2%E1%84%83%E1%85%A1%E1%86%BC%20%E1%84%80%E1%85%A1%E1%84%80%E1%85%A7%E1%86%A8%20%E1%84%91%E1%85%AD%E1%84%89%E1%85%B5%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20(%E1%84%8B%E1%85%A9%E1%84%91%201d6760124edc4320bacb8eb83aadd5fd/11%20%E1%84%89%E1%85%A1%E1%86%BC%E1%84%91%E1%85%AE%E1%86%B7%E1%84%80%E1%85%AA%20%E1%84%92%E1%85%A1%E1%86%B7%E1%84%81%E1%85%A6%20%E1%84%80%E1%85%B1%E1%84%80%E1%85%A1%E1%84%92%E1%85%A1%E1%86%AB%E1%84%83%E1%85%A1%205e39249313d34f3298d5003d79d527d0.html">11. 상품과 함께 귀가한다.</a></td><td class="cell-~p:d">상품 획득</td><td class="cell-mljn"></td><td class="cell-gJXY"></td><td class="cell-`:fP"></td><td class="cell-A`tp"></td></tr><tr id="b536c783-104e-4dd6-a24f-3ec45a8018a8"><td class="cell-title"><a href="CVC%20(Customer%20Value%20Chain)%20396efc023646477196c3b12650a656a4/%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%B3%E1%86%AB%20%E1%84%86%E1%85%A1%E1%84%90%E1%85%B3%20%E1%84%86%E1%85%AE%E1%86%A9%E1%84%8B%E1%85%B3%E1%86%B7%E1%84%87%E1%85%A7%E1%86%AF%20%E1%84%80%E1%85%A2%E1%84%83%E1%85%A1%E1%86%BC%20%E1%84%80%E1%85%A1%E1%84%80%E1%85%A7%E1%86%A8%20%E1%84%91%E1%85%AD%E1%84%89%E1%85%B5%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20(%E1%84%8B%E1%85%A9%E1%84%91%201d6760124edc4320bacb8eb83aadd5fd/12%20%E1%84%80%E1%85%AE%E1%84%86%E1%85%A2%20%E1%84%83%E1%85%A1%E1%86%BC%E1%84%8B%E1%85%B5%E1%86%AF%20%E1%84%84%E1%85%A9%E1%84%82%E1%85%B3%E1%86%AB%20%E1%84%8B%E1%85%B5%E1%86%A8%E1%84%8B%E1%85%B5%E1%86%AF%20%E1%84%8B%E1%85%B5%E1%84%82%E1%85%A2%E1%84%8B%E1%85%A6%20%E1%84%86%E1%85%A1%E1%86%AB%E1%84%83%E1%85%B3%E1%86%AF%E1%84%85%E1%85%A7%E1%84%80%E1%85%A9%20%E1%84%92%E1%85%A2%E1%86%BB%E1%84%83%20b536c783104e4dd6a24f3ec45a8018a8.html">12. 구매 당일 또는 익일 이내에 만들려고 했던 요리를 진행하여 식자재 소비한다.</a></td><td class="cell-~p:d"></td><td class="cell-mljn"></td><td class="cell-gJXY"></td><td class="cell-`:fP"></td><td class="cell-A`tp"></td></tr><tr id="9ce79403-37c5-4b91-a358-4d5eeeed6752"><td class="cell-title"><a href="CVC%20(Customer%20Value%20Chain)%20396efc023646477196c3b12650a656a4/%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%B3%E1%86%AB%20%E1%84%86%E1%85%A1%E1%84%90%E1%85%B3%20%E1%84%86%E1%85%AE%E1%86%A9%E1%84%8B%E1%85%B3%E1%86%B7%E1%84%87%E1%85%A7%E1%86%AF%20%E1%84%80%E1%85%A2%E1%84%83%E1%85%A1%E1%86%BC%20%E1%84%80%E1%85%A1%E1%84%80%E1%85%A7%E1%86%A8%20%E1%84%91%E1%85%AD%E1%84%89%E1%85%B5%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20(%E1%84%8B%E1%85%A9%E1%84%91%201d6760124edc4320bacb8eb83aadd5fd/13%20%E1%84%89%E1%85%A1%E1%86%BC%E1%84%91%E1%85%AE%E1%86%B7%E1%84%8B%E1%85%B3%E1%86%AF%20%E1%84%8C%E1%85%A5%E1%86%BC%E1%84%85%E1%85%B5%E1%84%92%E1%85%A1%E1%86%AB%E1%84%83%E1%85%A1%209ce7940337c54b91a3584d5eeeed6752.html">13. 상품을 정리한다</a></td><td class="cell-~p:d"></td><td class="cell-mljn"></td><td class="cell-gJXY"></td><td class="cell-`:fP"></td><td class="cell-A`tp"></td></tr></tbody></table><br/><br/></div><p id="72efa59a-4588-4ee8-8250-ce844de045ad" class="">
+</p><p id="0fa1f37f-b629-427a-a8d9-ba65481ba29b" class="">
+</p><p id="36cce062-2ca0-4697-9e26-6e3959a55170" class="">
+</p><p id="edb4d3ee-0318-4585-a31d-62adcdff450f" class=""><a href="https://www.figma.com/file/LxwC1HHDhs4U2gcWrK1eki/%EC%A7%84%EC%A7%80%ED%95%9C%EA%B8%88%EB%B0%95%EC%A7%80-%EC%95%84%EC%9D%B4%EB%8D%B0%EC%9D%B4%EC%85%98?type=whiteboard&amp;node-id=0-1&amp;t=wOf4yw4ikxS2ypGH-0">https://www.figma.com/file/LxwC1HHDhs4U2gcWrK1eki/%EC%A7%84%EC%A7%80%ED%95%9C%EA%B8%88%EB%B0%95%EC%A7%80-%EC%95%84%EC%9D%B4%EB%8D%B0%EC%9D%B4%EC%85%98?type=whiteboard&amp;node-id=0-1&amp;t=wOf4yw4ikxS2ypGH-0</a></p><figure id="ca50d8ec-aea3-4191-8049-cb30cdf37e4d" class="image"><a href="CVC%20(Customer%20Value%20Chain)%20396efc023646477196c3b12650a656a4/Untitled%201.png"><img style="width:9408px" src="CVC%20(Customer%20Value%20Chain)%20396efc023646477196c3b12650a656a4/Untitled%201.png"/></a></figure><p id="9d7739d5-57b2-4402-bf80-81f2ee9eb1de" class="">
+</p><p id="57ea46da-b590-4373-9286-f624740415cf" class="">
+</p><p id="f1920830-142a-4664-ab6b-dd254dd950ee" class="">각 단계의 <strong>획득 가치</strong>, <strong>지불 비용</strong>, <strong>잠식 가치</strong>를 고려 하였을 때 가장 핵심적으로 해결해야 할 부분은 어디인지 결정합니다. 위의 표를 예시로 보면 <strong>앱다운로드</strong>, <strong>회원가입</strong>, <strong>구매자와 연락이 잘 되지 않고 거래 약속 후에도 연락 두절로 인하여 거래가 성사되지 않는 부분에서</strong> 가장 큰 페인 포인트가 될 수 있습니다. 또한 전체적으로 가치 잠식에서 사용자가 불편함을 느끼는 부분을 서비스 개선 방향으로 잡아가면 됩니다.</p><p id="6a492189-283c-44d8-8431-6de2a2d29489" class="">
+</p><p id="be2ae193-84cc-47fa-87fa-494a02241097" class="">
+</p><hr id="b9fbb83b-c20e-4851-ba87-227fad157df9"/><p id="9286f88e-80bd-4b8b-a418-bc2c1bd2f7ca" class="">
+</p><h3 id="949cd6c0-c28b-488a-a71d-6533055db01a" class="">초기 페르소나에 해당하는 고객들의 문제점</h3><table id="3d1a7f11-9f40-419c-b4f3-19226b7a135a" class="simple-table"><tbody><tr id="0eadc5e3-d7e9-45b0-9b5e-084528f03e17"><td id="kjmC" class="block-color-teal_background" style="width:151.984375px"><strong>해결해야 할 문제 <br/>(잠식 되는 주요 가치)<br/></strong></td><td id="a]_{" class="block-color-teal_background" style="width:201.03125px"><strong>문제 상세</strong></td><td id="[y=;" class="block-color-teal_background" style="width:334.9930725097656px"><strong>개선 방안</strong></td></tr><tr id="0a1365fb-d3f1-4280-b402-1c6df34b8038"><td id="kjmC" class="" style="width:151.984375px">가격 부담</td><td id="a]_{" class="" style="width:201.03125px">소량 판매와 손질 서비스 이용이 가격을 높일 수 있습니다.</td><td id="[y=;" class="" style="width:334.9930725097656px"><mark class="highlight-orange">소량 판매의 단위 가격을 표시하여 고객이 가격을 파악하기 쉽게 합니다. 또한, 다른 판매자나 제품과의 가격 비교 기능을 제공하여 고객이 합리적인 구매 결정을 할 수 있게 합니다.</mark></td></tr><tr id="ea8c0f5f-8624-4df6-a340-f8b52718dc73"><td id="kjmC" class="" style="width:151.984375px">품질 불확실성</td><td id="a]_{" class="" style="width:201.03125px">온라인 구매로 인해 제품의 품질을 직접 확인하지 못하는 문제가 있습니다.</td><td id="[y=;" class="" style="width:334.9930725097656px"><mark class="highlight-orange">제품 사진, 설명, 리뷰 등을 통해 품질에 대한 정보를 제공합니다. 또한, 불량 제품에 대한 교환 및 환불 정책을 명확히 하여 고객의 불안감을 줄입니다.</mark></td></tr><tr id="9bc884bb-7592-4fec-9afa-846bee44d867"><td id="kjmC" class="" style="width:151.984375px">배송 비용</td><td id="a]_{" class="" style="width:201.03125px">소량 구매시 배송비 부담이 커질 수 있습니다.</td><td id="[y=;" class="" style="width:334.9930725097656px"><mark class="highlight-orange">묶음 배송, 최소 구매 금액 이상 무료 배송 등 다양한 배송 옵션을 제공하여 배송비 부담을 줄입니다.</mark></td></tr></tbody></table><p id="3a2505cb-b3e2-46d2-a322-46a935c24701" class="">혼자 살 경우 요리를 할 때 남는 재료를 처리하기 곤란하다. 보통 식재료를 온라인으로 주문하거나 주말에 몰아서 장을 보게 되면서 시작한다. 온라인은 상대적으로 배송과정이 길고 신선도를 장담할 수 없으며, 오프라인의 경우는 주말 이어도 고객의 시간이 더 크게 소요된다는 점과, 필요한 수량만큼 구매하기가 어렵고, 많이 구매하게 될 경우 썩거나 신선도가 하락한다는 점이 고객 가치를 잠식시킨다.</p><p id="98aecae4-990d-4b06-81e7-a03e95ff0fe1" class="">이러한 약한 가치사슬들을 끊어내고자 <strong><mark class="highlight-orange">개당 픽업 시스템과 가격 부담을 최소화하고, 직접 장을 보는 과정에서의 문제를 개선</mark></strong>하고, 신선도와 품질, 편리함이라는 영역에서 기존 오프라인에서 신선 식품 구매 행태에서 대형마트를 이용하는 고객가치사슬에서 &#x27;디커플링&#x27;에 성공하고자 한다.</p><p id="57b5da8d-9a79-4a99-8d17-aa4c9371094c" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
